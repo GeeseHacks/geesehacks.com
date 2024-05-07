@@ -41,5 +41,5 @@ bugfix/fixing-navbar
 
 [Git Branch Naming Conventions](https://www.linkedin.com/pulse/naming-conventions-git-branches-kiran-javvaji-6fuac/)
 
-🐮
+🐮🐮🐮
 
