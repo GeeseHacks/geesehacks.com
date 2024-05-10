@@ -1,9 +1,8 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,13 +12,17 @@ const Navbar: React.FC = () => {
   };
 
   const links = [
-    {url: "/", text: "Home"},
-    {url: "/about", text: "About"},
-    {url: "/sponsors", text: "Sponsors"},
-    {url: "/faq", text: "FAQ"},
-  ]
+    { url: "/", text: "Home" },
+    { url: "/about", text: "About" },
+    { url: "/sponsors", text: "Sponsors" },
+    { url: "/faq", text: "FAQ" },
+  ];
 
-  const navLinks = links.map(link => <Link href={link.url} className={linkStyle} key={link.url}>{link.text}</Link>);
+  const navLinks = links.map((link) => (
+    <Link href={link.url} className={linkStyle} key={link.url}>
+      {link.text}
+    </Link>
+  ));
 
   return (
     <nav className="w-full bg-transparent text-white fixed top-0 left-0 z-50 lg:pt-4 pt-0">
@@ -57,7 +60,8 @@ const Navbar: React.FC = () => {
               </svg>
             </button>
           </div>
-          <div className="hidden lg:flex lg:space-x-4 items-center">
+          {/* lg:pr-36 used to offset space for the MLH Badge. If MLH Badge is not used, remove lg:pr-36 */}
+          <div className="hidden lg:flex lg:space-x-4 items-center lg:pr-36">
             {navLinks}
             <Link
               href="/apply"
@@ -68,8 +72,14 @@ const Navbar: React.FC = () => {
           </div>
         </div>
         {isOpen && (
-          <div className="lg:hidden bg-gray-800 px-2 pt-2 pb-3 space-y-1">
+          <div className="lg:hidden bg-gray-800 px-2 pt-2 pb-3 space-y-1 flex flex-col">
             {navLinks}
+            <Link
+              href="/apply"
+              className={linkStyle}
+            >
+              Apply Now
+            </Link>
           </div>
         )}
       </div>
@@ -80,4 +90,3 @@ const Navbar: React.FC = () => {
 export default Navbar;
 
 const linkStyle = "px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700";
-
