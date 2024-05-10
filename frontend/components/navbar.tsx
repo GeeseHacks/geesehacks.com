@@ -4,12 +4,22 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
+
+  const links = [
+    {url: "/", text: "Home"},
+    {url: "/about", text: "About"},
+    {url: "/sponsors", text: "Sponsors"},
+    {url: "/faq", text: "FAQ"},
+  ]
+
+  const navLinks = links.map(link => <Link href={link.url} className={linkStyle} key={link.url}>{link.text}</Link>);
 
   return (
     <nav className="w-full bg-transparent text-white fixed top-0 left-0 z-50 lg:pt-4 pt-0">
@@ -48,30 +58,7 @@ const Navbar: React.FC = () => {
             </button>
           </div>
           <div className="hidden lg:flex lg:space-x-4 items-center">
-            <Link
-              href="/"
-              className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700"
-            >
-              Home
-            </Link>
-            <Link
-              href="/about"
-              className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700"
-            >
-              About
-            </Link>
-            <Link
-              href="/sponsors"
-              className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700"
-            >
-              Sponsors
-            </Link>
-            <Link
-              href="/faq"
-              className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700"
-            >
-              FAQ
-            </Link>
+            {navLinks}
             <Link
               href="/apply"
               className="px-6 py-2 bg-transparent border-2 border-white rounded-full text-white text-sm font-medium hover:bg-white hover:text-gray-900 transition-all duration-300 ease-in-out"
@@ -82,36 +69,7 @@ const Navbar: React.FC = () => {
         </div>
         {isOpen && (
           <div className="lg:hidden bg-gray-800 px-2 pt-2 pb-3 space-y-1">
-            <Link
-              href="/"
-              className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700"
-            >
-              Home
-            </Link>
-            <Link
-              href="/about"
-              className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700"
-            >
-              About
-            </Link>
-            <Link
-              href="/sponsors"
-              className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700"
-            >
-              Sponsors
-            </Link>
-            <Link
-              href="/faq"
-              className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700"
-            >
-              FAQ
-            </Link>
-            <Link
-              href="/apply"
-              className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700"
-            >
-              Apply Now
-            </Link>
+            {navLinks}
           </div>
         )}
       </div>
@@ -120,3 +78,6 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
+
+const linkStyle = "px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700";
+
