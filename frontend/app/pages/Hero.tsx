@@ -1,13 +1,9 @@
 import React from "react";
-import backgroundImg from "../assets/heroBackground.png";
-import wave from "../assets/wave.svg";
+import background from "../assets/heroBackground.png";
 
-const Home = () => {
-  return (
-    <div>
-      <div className="bg-hero-pattern"></div>
-    </div>
-  );
+const Hero = () => {
+  return <div style={{ backgroundImage: `url(${background})` }}></div>;
 };
 
-export default Home;
+export default Hero;
+//className="bg-[url('app/assets/heroBackground.png')]"
