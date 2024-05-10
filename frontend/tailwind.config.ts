@@ -9,6 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
+        'hero-image': "url('~/assets/heroBackground.png')",
       },
     },
   },
