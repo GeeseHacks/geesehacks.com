@@ -4,7 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 
-const ButtonAnimation = ({text}) => {
+const ButtonAnimation = ({text, onClick}) => {
   return (
     <motion.button
     //to change color based on UI design and color themes
@@ -15,6 +15,7 @@ const ButtonAnimation = ({text}) => {
         color: 'white',
         cursor: 'pointer',
       }}
+      onClick={onClick}
     >
       {text}
     </motion.button>
