@@ -18,7 +18,7 @@ const facebook = (
   </a>
 );
 const insta = (
-  <a href="https://instagram.com" target="_blank">
+  <a href="https://www.instagram.com/geesehacks/" target="_blank">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 448 512"
@@ -32,7 +32,10 @@ const insta = (
 );
 
 const linkedin = (
-  <a href="https://linkedin.com" target="_blank">
+  <a
+    href="https://www.linkedin.com/company/geesehacks-hackathon/"
+    target="_blank"
+  >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 448 512"
