@@ -12,6 +12,7 @@ const config: Config = {
         'hero-image': "url('~/assets/heroBackground.png')",
       },
     },
+
   },
   plugins: [],
 };
