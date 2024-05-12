@@ -12,16 +12,36 @@ const Navbar: React.FC = () => {
   };
 
   const links = [
-    { url: "/", text: "Home" },
-    { url: "/about", text: "About" },
-    { url: "/sponsors", text: "Sponsors" },
-    { url: "/faq", text: "FAQ" },
+    // urls that start with # correspond to the id of the div that the link will scroll to
+    { url: "#hero", text: "Home" },
+    { url: "#about", text: "About" },
+    { url: "#partners", text: "Sponsors" },
+    { url: "#faq", text: "FAQ" },
   ];
 
+  const smoothScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault(); // Stop the immediate jump
+    const targetId = e.currentTarget.getAttribute("href"); // Get the href attribute of the clicked link
+    if (targetId) {
+      const targetSection = document.querySelector(targetId); // Select the section that matches the ID
+      if (targetSection) {
+        window.scrollTo({
+          top: targetSection.getBoundingClientRect().top + window.scrollY, // More accurate positioning
+          behavior: "smooth", // Smooth scroll
+        });
+      }
+    }
+  };
+
   const navLinks = links.map((link) => (
-    <Link href={link.url} className={linkStyle} key={link.url}>
+    <a
+      href={link.url}
+      className={linkStyle}
+      key={link.url}
+      onClick={smoothScroll}
+    >
       {link.text}
-    </Link>
+    </a>
   ));
 
   return (
@@ -73,7 +93,8 @@ const Navbar: React.FC = () => {
 
 export default Navbar;
 
-const linkStyle = "px-3 py-2 rounded-md text-sm md:text-base lg:text-lg font-medium hover:bg-gray-700";
+const linkStyle =
+  "px-3 py-2 rounded-md text-sm md:text-base lg:text-lg font-medium hover:bg-gray-700";
 
 const hamburger = (
   <svg
