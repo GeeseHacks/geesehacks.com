@@ -6,12 +6,14 @@ interface FramerLinkProps {
   url: string;
   icon?: React.ReactElement;
   className?: string;
+  onClick?: () => void;
 }
 
 const FramerLink: React.FC<FramerLinkProps> = ({
   url,
   icon,
   className = "",
+  onClick,
 }) => {
   return (
     <motion.a
@@ -22,6 +24,7 @@ const FramerLink: React.FC<FramerLinkProps> = ({
         transition: { duration: 0.2 },
       }}
       whileTap={{ scale: 0.7 }}
+      onClick={onClick}
     >
       {icon}
     </motion.a>
