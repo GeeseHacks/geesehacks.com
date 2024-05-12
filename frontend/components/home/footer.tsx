@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default function About() {
+export default function Footer() {
   return (
-    <div className="h-screen flex flex-col items-center justify-center bg-gray">
+    <div className="h-56 flex flex-col items-center justify-center bg-gray-800">
       <h1 className="text-4xl font-bold text-center text-white">
-        About Us
+        Footer
       </h1>
     </div>
   );
