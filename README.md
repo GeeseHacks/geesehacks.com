@@ -14,7 +14,16 @@ cd geesehacks.com
 ```
 
 ### Backend
-TBD
+Navigate to the `backend` directory
+```
+cd backend
+```
+Then install dependencies and get it running
+```
+npm install
+npm run start
+```
+Navigate to `http://localhost:4000` to see the server running.
 
 ### Frontend
 Navigate to the `frontend` directory
