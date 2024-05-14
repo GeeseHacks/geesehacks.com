@@ -50,7 +50,7 @@ const linkedin = (
 
 const Hero = () => {
   return (
-    <div className="bg-hero-image bg-cover w-screen h-screen flex items-center justify-center md:justify-evenly">
+    <div className="bg-hero-image bg-cover w-full h-screen flex items-center justify-center md:justify-evenly">
       <div className="flex-col space-y-8 mb-3 mx-3">
         <h1 className="text-blue-300 text-center text-5xl sm:text-6xl md:text-white lg:text-7xl xl:text-8xl font-bold drop-shadow-2xl">
           GeeseHacks
