@@ -5,3 +5,11 @@
 :root{
   background-color: #131F30;
 }
+
+.small-qoutation {
+  @apply text-8xl font-bold absolute;
+}
+
+.large-qoutation {
+  @apply text-[320px] font-bold absolute opacity-15;
+}
