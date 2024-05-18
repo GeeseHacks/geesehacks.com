@@ -68,7 +68,8 @@ const Navbar: React.FC = () => {
             </button>
           </div>
           {/* the right padding (pr) is used to make space for the MLH Badge. Can remove if MLH badge not used */}
-          <div className="hidden lg:flex lg:space-x-4 items-center pr-36 2xl:pr-0">
+          {/* <div className="hidden lg:flex lg:space-x-4 items-center pr-36 2xl:pr-0"> */}
+          <div className="hidden lg:flex lg:space-x-4 items-center">
             {navLinks}
             <Link
               href="/apply"

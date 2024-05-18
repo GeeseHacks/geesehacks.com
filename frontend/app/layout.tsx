@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         {/* Remove if not sponsored by MLH */}
-        <MLHBadge />
+        {/* <MLHBadge /> */}
         {children}
       </body>
     </html>
