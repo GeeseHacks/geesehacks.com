@@ -1,10 +1,12 @@
 const About: React.FC = () => {
   return (
-    <>
-      <div>hello</div>
-      <div className="min-h-screen flex flex-col items-center justify-center bg-dark-blue relative text-white">
+    <div className="relative min-h-screen flex flex-col items-center justify-center bg-dark-blue text-white">
+      <div className="wave top-0 left-0 z-10 "></div>
+      <div className="wave top-10 left-0 z-20 opacity-40"></div>
+
+      <div className="pt-64 pb-24 lg:pt-96 lg:pb-36">
         <h1 className="text-4xl font-bold text-center mb-10">About Us</h1>
-        <div className="border border-white p-10 md:p-20 md:px-28 rounded-xl shadow-custom text-center max-w-[320px] md:max-w-[600px] lg:max-w-[750px] mx-5 md:mx-10 relative">
+        <div className="border border-white p-10 md:p-20 md:px-28 rounded-xl shadow-custom text-center max-w-xs md:max-w-2xl lg:max-w-3xl mx-5 md:mx-10 relative">
           <span className="large-qoutation left-0 -top-24">“</span>
           <span className="small-qoutation hidden md:inline left-12 top-10">
             “
@@ -23,12 +25,10 @@ const About: React.FC = () => {
           <span className="small-qoutation hidden md:inline right-12 -bottom-2">
             ”
           </span>
-          <span className="large-qoutation -right-1 -bottom-64">
-            ”
-          </span>
+          <span className="large-qoutation -right-1 -bottom-64">”</span>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

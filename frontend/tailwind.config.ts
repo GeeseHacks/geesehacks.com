@@ -11,6 +11,7 @@ const config: Config = {
     extend: {
       backgroundImage: {
         'hero-image': "url('~/assets/heroBackground.png')",
+        'wave-image': "url('~/assets/wave.png')",
       },
       
       boxShadow: {

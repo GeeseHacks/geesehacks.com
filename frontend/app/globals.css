@@ -15,5 +15,5 @@
 }
 
 .wave {
-  @apply absolute;
+  @apply bg-wave-image bg-cover w-full h-52 lg:h-72 absolute;
 }
