@@ -13,3 +13,7 @@
 .large-qoutation {
   @apply text-[320px] font-bold absolute opacity-15;
 }
+
+.wave {
+  @apply absolute;
+}
