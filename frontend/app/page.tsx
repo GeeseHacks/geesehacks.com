@@ -5,7 +5,7 @@ import Statistics from '../components/home/statistics';
 import Partners from '../components/home/partners';
 import Faq from '../components/home/faq';
 import Footer from '../components/home/footer';
-
+import "./globals.css";
 
 
 export default function Home() {
@@ -21,3 +21,4 @@ export default function Home() {
     </div>
   );
 }
+
