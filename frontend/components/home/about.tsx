@@ -6,7 +6,7 @@ const About: React.FC = () => {
 
       <div className="pt-64 pb-24 lg:pt-96 lg:pb-36">
         <h1 className="text-4xl font-bold text-center mb-10">About Us</h1>
-        <div className="border border-white p-10 md:p-20 md:px-28 rounded-xl shadow-custom text-center max-w-xs md:max-w-2xl lg:max-w-3xl mx-5 md:mx-10 relative">
+        <div className="border border-white p-10 md:p-20 md:px-28 rounded-3xl shadow-orange-shadow text-center max-w-xs md:max-w-2xl lg:max-w-3xl mx-5 md:mx-10 relative">
           <span className="large-qoutation left-0 -top-24">“</span>
           <span className="small-qoutation hidden md:inline left-12 top-10">
             “

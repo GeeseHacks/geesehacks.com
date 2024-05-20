@@ -15,7 +15,7 @@ const config: Config = {
       },
       
       boxShadow: {
-        'custom': '0 10px 30px 10px rgba(220, 102, 0, 0.4), 0 5px 10px -2px rgba(220, 102, 0, 0.6)',
+        'orange-shadow': '0 0 20px 5px rgba(220, 102, 0, 0.6)'
       },
     },
   },
