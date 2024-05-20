@@ -16,8 +16,8 @@ const About: React.FC = () => {
           </p>
           <p className="text-gray-300 text-left text-md md:text-lg">
             Geese Hacks is an innovative hackathon that encapsulates the spirit
-            of Waterloo's rigorous tech environment. Organized by students and
-            for students, it's an arena where coding, creativity, and technology
+            of Waterloo&apos;s rigorous tech environment. Organized by students and
+            for students, it&apos;s an arena where coding, creativity, and technology
             collide to transform ideas into reality. This event challenges
             participants to push the boundaries of technology and develop
             solutions that address real-world problems.
