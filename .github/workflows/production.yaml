@@ -33,7 +33,7 @@ jobs:
         run: echo "DEPLOYMENT_URL=$(vercel inspect --token=${{ secrets.VERCEL_TOKEN }} --output=url)" >> $GITHUB_ENV
 
       - name: Output Deployment URL
-        run: echo "Deployment URL\:: ${{ env.DEPLOYMENT_URL }}"
+        run: echo "Deployment URL [${{ env.DEPLOYMENT_URL }}]"
 
       - name: Create GitHub Comment (optional)
         uses: actions/github-script@v6
