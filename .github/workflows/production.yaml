@@ -27,23 +27,21 @@ jobs:
       - name: Deploy Project Artifacts
         id: deploy
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
-        env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
       - name: Get Deployment URL
         id: get-url
-        run: echo "Deployment URL: $(vercel inspect --token=${{ secrets.VERCEL_TOKEN }} --output=url)"
+        run: echo "DEPLOYMENT_URL=$(vercel inspect --token=${{ secrets.VERCEL_TOKEN }} --output=url)" >> $GITHUB_ENV
 
       - name: Output Deployment URL
-        run: echo "Deployment URL: ${{ steps.get-url.outputs.url }}"
+        run: echo "Deployment URL: ${{ env.DEPLOYMENT_URL }}"
 
-      - name: Create GitHub Comment
+      - name: Create GitHub Comment (optional)
         uses: actions/github-script@v6
+        if: github.event_name == 'pull_request'
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const url = `Deployment URL: ${{ steps.get-url.outputs.url }}`;
+            const url = `Deployment URL: ${{ env.DEPLOYMENT_URL }}`;
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
