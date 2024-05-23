@@ -46,7 +46,8 @@ For each task / story you are working on, you should create a new branch. The br
 
 **Example (Branch Names):** \
 feature/landing-page \
-bugfix/fixing-navbar
+bugfix/fixing-navbar \
+chore/updating-docs
 
 [Git Branch Naming Conventions](https://www.linkedin.com/pulse/naming-conventions-git-branches-kiran-javvaji-6fuac/)
 
