@@ -1,7 +1,7 @@
 # GeeseHacks 2025 Website
 
 ## Overview
-This repository is a monorepo for the GeeseHacks project, containing both the frontend and backend components. The frontend is built using [Next.js/React], while the backend is developed with [TBD].
+This repository is a monorepo for the GeeseHacks project, containing both the frontend and backend components. The frontend is built using [Next.js/React], while the backend is developed with [Next.js].
 
 
 ## Getting Started
