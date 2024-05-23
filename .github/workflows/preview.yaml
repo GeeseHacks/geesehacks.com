@@ -35,7 +35,7 @@ jobs:
 
       - name: Get Deployment URL
         id: get-url
-        run: echo "DEPLOYMENT_URL=$(vercel inspect --token=${{ secrets.VERCEL_TOKEN }} --output=url)" >> $GITHUB_ENV
+        run: echo "DEPLOYMENT_URL=$(vercel --token=${{ secrets.VERCEL_TOKEN }} url)" >> $GITHUB_ENV
 
       - name: Output Deployment URL
         run: echo "Deployment URL [${{ env.DEPLOYMENT_URL }}]"
