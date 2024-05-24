@@ -1,7 +1,7 @@
 # GeeseHacks 2025 Website
 
 ## Overview
-This repository is a monorepo for the GeeseHacks project, containing both the frontend and backend components. The frontend is built using [Next.js/React], while the backend is developed with [TBD].
+This repository is a monorepo for the GeeseHacks project, containing both the frontend and backend components. The frontend is built using [Next.js/React], while the backend is developed with [Next.js].
 
 
 ## Getting Started
@@ -46,7 +46,8 @@ For each task / story you are working on, you should create a new branch. The br
 
 **Example (Branch Names):** \
 feature/landing-page \
-bugfix/fixing-navbar
+bugfix/fixing-navbar \
+chore/updating-docs
 
 [Git Branch Naming Conventions](https://www.linkedin.com/pulse/naming-conventions-git-branches-kiran-javvaji-6fuac/)
 
