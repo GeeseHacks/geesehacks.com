@@ -15,7 +15,7 @@ const config: Config = {
       },
 
       boxShadow: {
-        'orange-shadow': '0 0 20px 5px rgba(220, 102, 0, 0.6)'
+        'purple-shadow': '0 0 20px 5px rgba(158, 99, 234, 0.6)'
       },
     },
   },
