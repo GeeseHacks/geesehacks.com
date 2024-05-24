@@ -8,6 +8,9 @@ on:
   push:
     branches-ignore:
       - main
+  pull_request:
+    branches:
+      - '*'
 
 jobs:
   Deploy-Preview:
@@ -34,12 +37,6 @@ jobs:
         run: |
           DEPLOYMENT_URL=$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }} --env VERCEL_ORG_ID=${{ secrets.VERCEL_ORG_ID }} --env VERCEL_PROJECT_ID=${{ secrets.VERCEL_PROJECT_ID }})
           echo "DEPLOYMENT_URL=$DEPLOYMENT_URL" >> $GITHUB_ENV
-
-      - name: Check GitHub Token Permissions
-        run: |
-          echo "Token: ${{ secrets.GITHUB_TOKEN }}"
-          curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/
-
 
       - name: Create GitHub Comment
         uses: actions/github-script@v6
