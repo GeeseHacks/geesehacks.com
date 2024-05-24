@@ -29,24 +29,3 @@ jobs:
       - name: Deploy Project Artifacts
         id: deploy
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
-
-      - name: Get Deployment URL
-        id: get-url
-        run: echo "DEPLOYMENT_URL=$(vercel inspect --token=${{ secrets.VERCEL_TOKEN }} --output=url)" >> $GITHUB_ENV
-
-      - name: Output Deployment URL
-        run: echo "Deployment URL [${{ env.DEPLOYMENT_URL }}]"
-
-      - name: Create GitHub Comment (optional)
-        uses: actions/github-script@v6
-        if: github.event_name == 'pull_request'
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const url = `Deployment URL: ${{ env.DEPLOYMENT_URL }}`;
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: url
-            });
