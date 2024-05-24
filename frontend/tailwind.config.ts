@@ -13,7 +13,7 @@ const config: Config = {
         'hero-image': "url('~/assets/heroBackground.png')",
         'wave-image': "url('~/assets/wave.png')",
       },
-      
+
       boxShadow: {
         'orange-shadow': '0 0 20px 5px rgba(220, 102, 0, 0.6)'
       },
