@@ -10,7 +10,7 @@ const About: React.FC = () => {
         <h1 className="text-4xl font-bold text-center mb-16 md:mb-10">
           About Us
         </h1>
-        <div className="border border-white p-7 md:p-20 md:px-28 rounded-3xl shadow-purple-shadow text-center max-w-72 md:max-w-xl lg:max-w-3xl mx-5 md:mx-10 relative">
+        <div className="border border-white p-7 sm:p-12 md:p-20 md:px-28 rounded-3xl shadow-purple-shadow text-center max-w-72 sm:max-w-lg md:max-w-xl lg:max-w-3xl mx-5 md:mx-10 relative">
           <span className="large-qoutation -top-32 -left-12 md:-left-16 md:-top-44">
             “
           </span>
@@ -31,7 +31,7 @@ const About: React.FC = () => {
           <span className="small-qoutation hidden md:inline right-12 -bottom-2">
             ”
           </span>
-          <span className="large-qoutation -right-12 -bottom-64 md:-right-16 md:top-80 lg:top-64">
+          <span className="large-qoutation -right-12 -bottom-64 md:-right-16 md:-bottom-80 lg:top-64">
             ”
           </span>
           <Image
