@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
-import MLHBadge from "../components/home/mlhBadge";
+import MLHBadge from "../components/home/utils/mlhBadge";
 
 const inter = Inter({ subsets: ["latin"] });
 

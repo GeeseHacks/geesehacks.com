@@ -2,7 +2,7 @@ import React from "react";
 import background from "@/assets/heroBackground.png";
 // import terminal from "@/assets/Terminal.svg";
 import Image from "next/image";
-import AnimatedTerminal from "./terminal";
+import AnimatedTerminal from "./utils/terminal";
 
 const facebook = (
   <a href="https://facebook.com" target="_blank">
