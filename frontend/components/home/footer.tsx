@@ -1,5 +1,5 @@
 import React from "react";
-import FooterTerminal from "./footerTerminal";
+import FooterTerminal from "./utils/footerTerminal";
 
 const insta = (
   <a href="https://www.instagram.com/geesehacks/" target="_blank">

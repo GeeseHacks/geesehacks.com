@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Partners() {
   return (
-    <div className="p-8 sm:p-16 flex flex-col items-center justify-center bg-gray-600">
+    <div className="p-8 sm:p-16 flex flex-col items-center justify-center">
       <h1 className="text-2xl sm:text-4xl font-bold text-center text-white mb-4 sm:mb-8">
         Partners
       </h1>
