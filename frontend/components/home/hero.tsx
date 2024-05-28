@@ -3,6 +3,7 @@ import background from "@/assets/heroBackground.png";
 // import terminal from "@/assets/Terminal.svg";
 import Image from "next/image";
 import AnimatedTerminal from "./utils/terminal";
+import Link from "next/link";
 
 const facebook = (
   <a href="https://facebook.com" target="_blank">
@@ -50,7 +51,7 @@ const linkedin = (
 
 const Hero = () => {
   return (
-    <div className="bg-hero-image bg-cover w-full h-screen flex items-center justify-center md:justify-evenly">
+    <div className="bg-hero-image bg-cover w-full h-screen flex items-center justify-center md:justify-evenly bg-bottom">
       <div className="flex-col space-y-8 mb-3 mx-3">
         <h1 className="text-blue-300 text-center text-5xl sm:text-6xl md:text-white lg:text-7xl xl:text-8xl font-bold drop-shadow-2xl">
           GeeseHacks
@@ -64,9 +65,12 @@ const Hero = () => {
           </h1>
         </div>
         <div className="flex space-x-4 justify-center md:justify-start">
-          {facebook}
-          {insta}
-          {linkedin}
+          <Link
+            href="/apply"
+            className="px-8 py-3  bg-gradient-to-r from-purple-600 to-purple-800 rounded-full text-white text-sm md:text-base lg:text-lg font-medium hover:bg-gradient-to-r hover:from-purple-500 hover:to-purple-700 transition-all duration-300 ease-in-out"
+          >
+            Apply Now
+          </Link>
         </div>
       </div>
       <div className="flex mt-8 sr-only md:not-sr-only">
