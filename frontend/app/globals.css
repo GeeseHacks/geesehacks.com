@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root{
-  background-color: #131F30;
+  background-color: #121E2F;
 }
 
 .small-qoutation {
@@ -11,7 +11,7 @@
 }
 
 .large-qoutation {
-  @apply text-[320px] font-bold absolute opacity-15;
+  @apply text-[250px] md:text-[320px] font-bold absolute opacity-15;
 }
 
 .wave {
