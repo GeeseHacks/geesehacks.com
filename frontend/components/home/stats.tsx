@@ -12,27 +12,25 @@ export default function Stats() {
           height={500}
         />
       </div>
-      <div className="text-lg font-bold text-white text-4xl flex flex-wrap justify-center items-center">
+      <div className="flex flex-wrap justify-center items-center">
         <div className="flex flex-col items-center"> 
-          <h1 className="inline-block pr-20 pl-20 pb-3">1000+</h1> 
-          <div className="text-sm font-normal text-gray-500 pb-10">Applicants</div>
+          <h1 className="inline-block pr-20 pl-20 pb-3 sm:text-2xl md:text-3xl lg:text-5xl xl:text-5xl font-bold text-white">1000+</h1> 
+          <div className="text-sm sm:text-base md:text-base lg:text-m xl:text-l font-normal text-gray-500 pb-10">Applicants</div>
         </div>
         <div className="flex flex-col items-center"> 
-          <h1 className="inline-block pr-20 pl-20 pb-3">25+</h1> 
-          <div className="text-sm font-normal text-gray-500 pb-10">Events</div>
+          <h1 className="inline-block pr-20 pl-20 pb-3 sm:text-2xl md:text-3xl lg:text-5xl xl:text-5xl font-bold text-white">25+</h1> 
+          <div className="text-sm sm:text-base md:text-base lg:text-m xl:text-l font-normal text-gray-500 pb-10">Events</div>
         </div>
         <div className="flex flex-col items-center"> 
-          <h1 className="inline-block pr-20 pl-20 pb-3">50+</h1> 
-          <div className="text-sm font-normal text-gray-500 pb-10">Organizers</div>
+          <h1 className="inline-block pr-20 pl-20 pb-3 sm:text-2xl md:text-3xl lg:text-5xl xl:text-5xl font-bold text-white">50+</h1> 
+          <div className="text-sm sm:text-base md:text-base lg:text-m xl:text-l font-normal text-gray-500 pb-10">Organizers</div>
         </div>
         <div className="flex flex-col items-center"> 
-          <h1 className="inline-block pr-20 pl-20 pb-3">40+</h1> 
-          <div className="text-sm font-normal text-gray-500 pb-10">Countries</div>
+          <h1 className="inline-block pr-20 pl-20 pb-3 sm:text-2xl md:text-3xl lg:text-5xl xl:text-5xl font-bold text-white">40+</h1> 
+          <div className="text-sm sm:text-base md:text-base lg:text-m xl:text-l font-normal text-gray-500 pb-10">Countries</div>
         </div>
-        
+ 
       </div>
-
-
 
     </div>
   )
