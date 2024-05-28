@@ -1,3 +1,5 @@
+# This workflow is triggered on push to the main branch and deploys the production environment to Vercel
+
 name: Vercel Production Deployment
 
 env:

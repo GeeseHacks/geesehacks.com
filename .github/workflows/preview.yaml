@@ -1,3 +1,5 @@
+# This workflow is triggered on pull requests and deploys the preview environment to Vercel
+
 name: Vercel Preview Deployment
 
 env:
