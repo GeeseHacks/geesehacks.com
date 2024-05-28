@@ -1,4 +1,4 @@
-# Deletes deployments older than a specified age limit
+# This workflow deletes deployments older than a certain age (7 days by default) in a Vercel project
 
 name: Cleanup Old Deployments
 
@@ -29,8 +29,11 @@ jobs:
           # Get the current date in seconds since epoch
           current_date=$(date +%s)
 
+          # Get the current production deployment
+          current_prod_deployment=$(curl -s -X GET "https://api.vercel.com/v6/deployments?projectId=${{ env.VERCEL_PROJECT_ID }}" -H "Authorization: Bearer ${{ env.VERCEL_TOKEN }}" | jq -r '.deployments[] | select(.target == "production" and .state == "READY") | .uid')
+
           # Get the list of all deployments with their creation times
-          deployments=$(curl -s -X GET "https://api.vercel.com/v6/deployments?projectId=${{ env.VERCEL_PROJECT_ID }}" -H "Authorization: Bearer ${{ env.VERCEL_TOKEN }}" | jq -r '.deployments[] | "\(.uid) \(.createdAt)"')
+          deployments=$(curl -s -X GET "https://api.vercel.com/v6/deployments?projectId=${{ env.VERCEL_PROJECT_ID }}" -H "Authorization: Bearer ${{ env.VERCEL_TOKEN }}" | jq -r '.deployments[] | "\(.uid) \(.createdAt) \(.target)"')
 
           # Convert deployments list to an array
           readarray -t deployments_array <<< "$deployments"
@@ -39,12 +42,13 @@ jobs:
           for deployment in "${deployments_array[@]}"; do
             uid=$(echo $deployment | awk '{print $1}')
             created_at=$(echo $deployment | awk '{print $2}')
+            target=$(echo $deployment | awk '{print $3}')
             # Calculate the deployment age in days
             deployment_age_days=$(( (current_date - (created_at / 1000)) / 86400 ))
 
-            # Delete the deployment if it is older than the age limit
-            if [ $deployment_age_days -gt $AGE_LIMIT_DAYS ]; then
-              echo "Deleting deployment: $uid (Age: $deployment_age_days days)"
+            # Delete the deployment if it is older than the age limit and not the current production deployment
+            if [ $deployment_age_days -gt $AGE_LIMIT_DAYS ] && [ "$uid" != "$current_prod_deployment" ]; then
+              echo "Deleting deployment: $uid (Age: $deployment_age_days days, Target: $target)"
               curl -s -X DELETE "https://api.vercel.com/v6/deployments/$uid" -H "Authorization: Bearer ${{ env.VERCEL_TOKEN }}"
             fi
           done
