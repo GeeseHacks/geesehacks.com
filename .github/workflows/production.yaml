@@ -31,16 +31,6 @@ jobs:
       
       - name: Build Project Artifacts
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
-      
-      - name: Create GitHub Deployment
-        id: create_deployment
-        uses: peter-evans/create-or-update-deployment@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          environment: production
-          description: "Production deployment"
-          ref: ${{ github.ref }}
-          required_contexts: []
 
       - name: Deploy Project Artifacts
         id: deploy
