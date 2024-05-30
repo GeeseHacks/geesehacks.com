@@ -1,3 +1,5 @@
+# This workflow is triggered on pull requests and deploys the preview environment to Vercel
+
 name: Vercel Preview Deployment
 
 env:
@@ -5,15 +7,21 @@ env:
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
 on:
-  push:
+  pull_request:
     branches-ignore:
       - main
 
 jobs:
   Deploy-Preview:
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
       
       - name: Install Vercel CLI
         run: npm install -g vercel
@@ -26,25 +34,17 @@ jobs:
       
       - name: Deploy Project Artifacts
         id: deploy
-        run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
-        env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          DEPLOYMENT_URL=$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }} --env VERCEL_ORG_ID=${{ secrets.VERCEL_ORG_ID }} --env VERCEL_PROJECT_ID=${{ secrets.VERCEL_PROJECT_ID }})
+          echo "DEPLOYMENT_URL=$DEPLOYMENT_URL" >> $GITHUB_ENV
 
-      - name: Get Deployment URL
-        id: get-url
-        run: echo "DEPLOYMENT_URL=$(vercel inspect --token=${{ secrets.VERCEL_TOKEN }} --output=url)" >> $GITHUB_ENV
-
-      - name: Output Deployment URL
-        run: echo "Deployment URL: ${{ env.DEPLOYMENT_URL }}"
-
-      - name: Create GitHub Comment
+      - name: Create Github Comment with URL
         uses: actions/github-script@v6
         if: github.event_name == 'pull_request'
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const url = `Deployment URL: ${{ env.DEPLOYMENT_URL }}`;
+            const url = `Preview URL: ${{ env.DEPLOYMENT_URL }}`;
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
