@@ -4,6 +4,7 @@ import background from "@/assets/heroBackground.png";
 import Image from "next/image";
 import AnimatedTerminal from "./utils/terminal";
 import Link from "next/link";
+import HeroButton from "./utils/heroButton";
 
 const facebook = (
   <a href="https://facebook.com" target="_blank">
@@ -65,12 +66,7 @@ const Hero = () => {
           </h1>
         </div>
         <div className="flex space-x-4 justify-center md:justify-start">
-          <Link
-            href="/apply"
-            className="px-8 py-3  bg-gradient-to-r from-purple-600 to-purple-800 rounded-full text-white text-sm md:text-base lg:text-lg font-medium hover:bg-gradient-to-r hover:from-purple-500 hover:to-purple-700 transition-all duration-300 ease-in-out"
-          >
-            Apply Now
-          </Link>
+          <HeroButton href="/apply">Apply Now</HeroButton>
         </div>
       </div>
       <div className="flex mt-8 sr-only md:not-sr-only">
