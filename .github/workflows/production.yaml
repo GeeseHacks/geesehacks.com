@@ -10,6 +10,10 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches-ignore:
+      - main
+  workflow_dispatch:
 
 jobs:
   Deploy-Production:
@@ -31,6 +35,16 @@ jobs:
       
       - name: Build Project Artifacts
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+      
+      - name: Create GitHub Deployment
+        id: create_deployment
+        uses: peter-evans/create-or-update-deployment@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment: production
+          description: "Production deployment"
+          ref: ${{ github.ref }}
+          required_contexts: []
 
       - name: Deploy Project Artifacts
         id: deploy
@@ -43,10 +57,11 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
+            const context = github.context;
             github.repos.createDeploymentStatus({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              deployment_id: ${{ steps.create_deployment.outputs.deployment_id }},
+              deployment_id: ${steps.create_deployment.outputs.deployment_id},
               state: 'success',
               environment_url: process.env.DEPLOYMENT_URL,
               log_url: `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
