@@ -70,9 +70,14 @@ export default function Footer() {
           {mail}
         </div>
       </div>
-      <div className="flex sr-only lg:not-sr-only">
-        <FooterTerminal />
+      <div className="relative flex items-center justify-center h-screen">
+        <div className="drop-shadow-[0_20px_80px_#FF460C]">
+          <div className="flex sr-only lg:not-sr-only drop-shadow-[0_10px_40px_#690CFF]">
+            <FooterTerminal />
+          </div>
+        </div>
       </div>
+
     </div>
   );
 }
