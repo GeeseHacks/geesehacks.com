@@ -15,7 +15,7 @@ const config: Config = {
         'wave-image': "url('~/assets/wave.png')",
       },
       boxShadow: {
-        'purple-shadow': '0 0 20px 5px rgba(158, 99, 234, 0.6)', // For About Us box
+        'purple-shadow': '0 0 20px 10px rgba(158, 99, 234, 0.6)', // For About Us box
         'terminal-glow1': '0 0 10px 12px rgba(160, 65, 255, 0.77), 0 0 80px 40px rgba(172, 48, 249, 1)', // For Hero section terminal
       }
     },
