@@ -7,7 +7,7 @@ const About: React.FC = () => {
       <div className="wave top-10 left-0 z-20 opacity-40"></div>
 
       <div className="pt-64 pb-24 lg:pt-96 lg:pb-36">
-        <h1 className="text-4xl font-bold text-center mb-16 md:mb-10">
+        <h1 className="text-4xl font-bold text-center mb-16 md:mb-10 text-shadow-section-header-glow">
           About Us
         </h1>
         <div className="relative border border-white p-7 sm:p-12 md:p-20 md:px-28 rounded-3xl shadow-purple-shadow text-center max-w-72 sm:max-w-lg md:max-w-xl lg:max-w-3xl mx-5 md:mx-10">

@@ -26,6 +26,9 @@ const config: Config = {
         '.text-shadow-white-glow': { // For the text in the Hero section
           textShadow: '0px 0px 25px rgba(255,255,255,0.65)',
         },
+        '.text-shadow-section-header-glow': { // For the section headers
+          textShadow: '0px 0px 45px rgba(148, 165, 255,0.85)',
+        },
       };
       api.addUtilities(newUtilities, { respectPrefix: true, respectImportant: true });
     },
