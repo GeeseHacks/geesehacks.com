@@ -73,7 +73,7 @@ const Carousel = () => {
 
     if (isSmallScreen) {
         return (
-            <div className="w-full my-8">
+            <div className="relative w-full my-8">
                 <h1 className="text-4xl font-bold text-center text-white mb-8 drop-shadow-[0_0_20px_#94A5FF]">
                     Meet The Team
                 </h1>
