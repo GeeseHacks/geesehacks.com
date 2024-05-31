@@ -4,9 +4,9 @@ import About from '../components/home/about';
 import Stats from '../components/home/stats';
 import Partners from '../components/home/partners';
 import Faq from '../components/home/faq';
+import Team from '../components/home/team';
 import Footer from '../components/home/footer';
 import "./globals.css";
-
 
 export default function Home() {
   return (
@@ -16,6 +16,7 @@ export default function Home() {
       <div id="about"> <About /> </div>
       <div id="statistics"> <Stats /> </div>
       <div id="partners"> <Partners /> </div>
+      <div id="team"> <Team /> </div>
       <div id="faq"> <Faq /> </div>
       <Footer />
     </div>
