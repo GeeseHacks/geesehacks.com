@@ -3,8 +3,8 @@ import Image from "next/image";
 
 export default function Stats() {
   return (
-    <div>
-      <h1 className="text-4xl font-bold text-center mb-16 md:mb-10 text-white pb-36">
+    <div className="text-white">
+      <h1 className="text-4xl font-bold text-center mb-16 md:mb-10 pb-36">
         Sponsors & Partners
       </h1>
       <div className="relative flex justify-center items-center">
@@ -19,46 +19,19 @@ export default function Stats() {
         </div>
       </div>
       <div className="flex flex-wrap justify-center items-center mt-56 gap-4">
-      <div style={{ width: 'calc(20% - 4px)' }}>
-        <div className="flex flex-col items-center bg-opacity-15 border border-purple-300 rounded-2xl p-4">
-          <h1 className="inline-block sm:text-2xl md:text-3xl lg:text-5xl xl:text-5xl font-bold text-white">
-            1000+
-          </h1>
-          <div className="text-sm sm:text-base md:text-base lg:text-m xl:text-l font-normal text-gray-500">
-            Applicants
+        {['1000+', '25+', '50+', '40+'].map((stat, index) => (
+          <div key={index} className="w-1/5 relative">
+            <div className="absolute inset-0 transform translate-y-2 z-0 rounded-2xl shadow-stat-inner-shadow bg-stat-card-bg"></div>
+            <div className="relative flex flex-col items-center rounded-2xl p-9 shadow-stat-card-shadow z-10 bg-stat-card-bg">
+              <h1 className="inline-block sm:text-2xl md:text-3xl lg:text-5xl xl:text-5xl font-bold md:pb-5">
+                {stat}
+              </h1>
+              <div className="text-sm sm:text-base md:text-base lg:text-m xl:text-l font-normal">
+                {['Applicants', 'Events', 'Organizers', 'Countries'][index]}
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div style={{ width: 'calc(20% - 4px)' }}>
-        <div className="flex flex-col items-center bg-gray-900 bg-opacity-15 border border-purple-300 rounded-2xl p-4">
-          <h1 className="inline-block sm:text-2xl md:text-3xl lg:text-5xl xl:text-5xl font-bold text-white">
-            25+
-          </h1>
-          <div className="text-sm sm:text-base md:text-base lg:text-m xl:text-l font-normal text-gray-500">
-            Events
-          </div>
-        </div>
-      </div>
-      <div style={{ width: 'calc(20% - 4px)' }}>
-        <div className="flex flex-col items-center bg-opacity-15 border border-purple-300 rounded-2xl p-4">
-          <h1 className="inline-block sm:text-2xl md:text-3xl lg:text-5xl xl:text-5xl font-bold text-white">
-            50+
-          </h1>
-          <div className="text-sm sm:text-base md:text-base lg:text-m xl:text-l font-normal text-gray-500">
-            Organizers
-          </div>
-        </div>
-      </div>
-      <div style={{ width: 'calc(20% - 4px)' }}>
-        <div className="flex flex-col items-center bg-opacity-15 border border-purple-300 rounded-2xl p-4">
-          <h1 className="inline-block sm:text-2xl md:text-3xl lg:text-5xl xl:text-5xl font-bold text-white">
-            40+
-          </h1>
-          <div className="text-sm sm:text-base md:text-base lg:text-m xl:text-l font-normal text-gray-500">
-            Countries
-          </div>
-      </div>
-        </div>
+        ))}
       </div>
     </div>
   );

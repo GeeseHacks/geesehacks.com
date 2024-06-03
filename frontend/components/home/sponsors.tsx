@@ -7,7 +7,7 @@ export default function Sponsors() {
         Our Sponsors
       </h1>
       <div
-        className="absolute w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-purple-600 rounded-full blur-2xl opacity-40"
+        className="absolute w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-purple-600 rounded-full blur-3xl opacity-30"
         style={{ top: "30%" }}
       ></div>
       <div className="w-full sm:w-3/4 z-10">
