@@ -18,8 +18,8 @@ export default function Stats() {
           />
         </div>
       </div>
-      <div className="flex flex-wrap justify-center items-center mt-56">
-        <div className="flex flex-col items-center">
+      <div className="flex flex-wrap justify-center items-center mt-56 gap-x-10">
+        <div className="flex flex-col items-center rounded-3xl">
           <h1 className="inline-block pr-20 pl-20 pb-3 sm:text-2xl md:text-3xl lg:text-5xl xl:text-5xl font-bold text-white">
             1000+
           </h1>
@@ -27,7 +27,7 @@ export default function Stats() {
             Applicants
           </div>
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center rounded-3xl">
           <h1 className="inline-block pr-20 pl-20 pb-3 sm:text-2xl md:text-3xl lg:text-5xl xl:text-5xl font-bold text-white">
             25+
           </h1>
