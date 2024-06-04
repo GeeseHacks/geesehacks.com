@@ -13,15 +13,15 @@ const Navbar: React.FC = () => {
     setIsOpen(!isOpen);
   };
 
-  // const handleScroll = () => {
-  //   // The px valid needs to match the size when the hamburger icon appears
-  //   const isLargeScreen = window.matchMedia("(min-width: 1024px)").matches;
-  //   if (isLargeScreen && window.scrollY > 50) {
-  //     setScrolled(true);
-  //   } else {
-  //     setScrolled(false);
-  //   }
-  // };
+  const handleScroll = () => {
+    // The px valid needs to match the size when the hamburger icon appears
+    const isLargeScreen = window.matchMedia("(min-width: 1024px)").matches;
+    if (isLargeScreen && window.scrollY > 50) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
 
   const [isVisible, setIsVisible] = useState<boolean>(true);
   let lastScrollY = 0;
@@ -37,13 +37,7 @@ const Navbar: React.FC = () => {
       }
       lastScrollY = window.scrollY;
 
-      // The px valid needs to match the size when the hamburger icon appears
-      const isLargeScreen = window.matchMedia("(min-width: 1024px)").matches;
-      if (isLargeScreen && window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      handleScroll();
     };
 
     window.addEventListener('scroll', handleVisibility);
