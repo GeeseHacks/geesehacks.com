@@ -8,24 +8,49 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleScroll = () => {
-    // The px valid needs to match the size when the hamburger icon appears
-    const isLargeScreen = window.matchMedia("(min-width: 1024px)").matches;
-    if (isLargeScreen && window.scrollY > 50) {
-      setScrolled(true);
-    } else {
-      setScrolled(false);
-    }
-  };
+  // const handleScroll = () => {
+  //   // The px valid needs to match the size when the hamburger icon appears
+  //   const isLargeScreen = window.matchMedia("(min-width: 1024px)").matches;
+  //   if (isLargeScreen && window.scrollY > 50) {
+  //     setScrolled(true);
+  //   } else {
+  //     setScrolled(false);
+  //   }
+  // };
+
+  const [isVisible, setIsVisible] = useState<boolean>(true);
+  let lastScrollY = 0;
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+
+    // Logic to handle scroll animation
+    const handleVisibility = () => {
+      if (window.scrollY < lastScrollY || window.scrollY < 50) {
+        setIsVisible(true);
+      } else if (window.scrollY > lastScrollY) {
+        setIsVisible(false);
+      }
+      lastScrollY = window.scrollY;
+
+      // The px valid needs to match the size when the hamburger icon appears
+      const isLargeScreen = window.matchMedia("(min-width: 1024px)").matches;
+      if (isLargeScreen && window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleVisibility);
+
+
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleVisibility);
     };
   }, []);
 
@@ -64,9 +89,8 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`w-screen fixed top-0 left-0 text-white z-50 lg:pt-4 pt-0 px-4 sm:px-6 lg:px-8 xl:px-16 transition-all h-20 duration-300 ${
-        scrolled  ? "bg-[rgba(18,30,47,0.8)]" : "bg-transparent"
-      }`}
+      className={`w-screen fixed top-0 left-0 text-white z-50 lg:pt-4 pt-0 px-4 sm:px-6 lg:px-8 xl:px-16 transition-all h-20 duration-300 ${scrolled ? `bg-[rgba(0,0,0,0.1)] fixed w-full ${isVisible ? 'top-0' : '-top-20'} transition-top duration-300 ease-in-out z-50` : "bg-transparent"
+        } `}
     >
       <div className="mx-auto w-full 2xl:w-4/5">
         <div className="flex justify-between h-12">
