@@ -65,7 +65,7 @@ const Navbar: React.FC = () => {
   return (
     <nav
       className={`w-screen fixed top-0 left-0 text-white z-50 lg:pt-4 pt-0 px-4 sm:px-6 lg:px-8 xl:px-16 transition-all h-20 duration-300 ${
-        scrolled  ? "bg-[#121E2F]" : "bg-transparent"
+        scrolled  ? "bg-[rgba(18,30,47,0.8)]" : "bg-transparent"
       }`}
     >
       <div className="mx-auto w-full 2xl:w-4/5">
