@@ -51,10 +51,10 @@ const Navbar: React.FC = () => {
           <div className="hidden lg:flex">
             <div className="flex-shrink-0 flex items-center">
               <Image
-                src="/images/geesehacksLogoTemp.png"
+                src="/images/geesehacksLogo.png"
                 alt="Logo"
-                width={40}
-                height={40}
+                width={45}
+                height={45}
               />
             </div>
           </div>
