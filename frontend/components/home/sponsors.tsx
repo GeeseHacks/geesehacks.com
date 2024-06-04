@@ -1,6 +1,55 @@
 import React from "react";
+import Image from "next/image";
 
-export default function Sponsors() {
+interface Sponsor {
+  href: string;
+  src: string;
+  alt: string;
+}
+
+const sponsorsData: Sponsor[] = [
+  {
+    href: "https://about.google/",
+    src: "/images/google_logo.png",
+    alt: "Google",
+  },
+  {
+    href: "https://www.sunlife.ca/en/",
+    src: "/images/sunlife-logo-vector.webp",
+    alt: "Sun Life",
+  },
+  {
+    href: "https://uwaterloo.ca/",
+    src: "/images/uwaterloo_logo.png",
+    alt: "University of Waterloo",
+  },
+  {
+    href: "https://cscan-infocan.ca/",
+    src: "/images/cscan.webp",
+    alt: "CS-Can",
+  },
+];
+
+interface SponsorCardProps {
+  href: string;
+  src: string;
+  alt: string;
+  width: string;
+}
+
+const SponsorCard: React.FC<SponsorCardProps> = ({ href, src, alt, width }) => {
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" className="flex">
+      <div className="flex justify-center items-center bg-purple-300 bg-opacity-15 border-2 border-purple-300 rounded-md p-4 min-h-[10rem] hover:scale-105 ease-in-out duration-300 w-full">
+        <div>
+          <Image src={src} alt={alt} layout="responsive" width={0} height={50} />
+        </div>
+      </div>
+    </a>
+  );
+};
+
+const Sponsors: React.FC = () => {
   return (
     <div className="p-8 sm:p-16 flex flex-col items-center justify-center relative">
       <h1 className="text-2xl sm:text-4xl font-bold text-center text-white mb-4 sm:mb-8">
@@ -12,62 +61,23 @@ export default function Sponsors() {
       ></div>
       <div className="w-full sm:w-3/4 z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <a href="https://about.google/" target="_blank" className="flex">
-            <div className="flex justify-center items-center bg-purple-300 bg-opacity-15 border-2 border-purple-300 rounded-md p-4 min-h-[6rem] hover:scale-105 ease-in-out duration-300">
-              <img
-                src="/images/google_logo.png"
-                alt="Google"
-                className="h-auto max-w-[80%] object-contain"
-              />
-            </div>
-          </a>
-          <a href="https://www.sunlife.ca/en/" target="_blank" className="flex">
-            <div className="flex justify-center items-center bg-purple-300 bg-opacity-15 border-2 border-purple-300 rounded-md p-4 min-h-[6rem] hover:scale-105 ease-in-out duration-300">
-              <img
-                src="/images/sunlife-logo-vector.webp"
-                alt="Sun Life"
-                className="h-auto max-w-[80%] object-contain"
-              />
-            </div>
-          </a>
+          {sponsorsData.slice(0, 2).map((sponsor, index) => (
+            <SponsorCard key={index} {...sponsor} width="80%" />
+          ))}
         </div>
         <div className="grid grid-cols-1 gap-4 mt-4">
-          <a href="https://uwaterloo.ca/" target="_blank">
-            <div className="flex justify-center items-center bg-purple-300 bg-opacity-15 border-2 border-purple-300 rounded-md p-4 min-h-[6rem] hover:scale-105 ease-in-out duration-300">
-              <img
-                src="/images/uwaterloo_logo.png"
-                alt="University of Waterloo"
-                className="h-auto max-w-[70%] object-contain"
-              />
-            </div>
-          </a>
+          {sponsorsData.slice(2, 3).map((sponsor, index) => (
+            <SponsorCard key={index} {...sponsor} width="70%" />
+          ))}
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-1 gap-4 mt-4">
-          <a href="https://cscan-infocan.ca/" target="_blank">
-            <div className="flex justify-center items-center bg-purple-300 bg-opacity-15 border-2 border-purple-300 rounded-md p-4 min-h-[6rem] hover:scale-105 ease-in-out duration-300">
-              <img
-                src="/images/cscan.webp"
-                alt="CS-Can"
-                className="h-auto max-w-[70%] object-contain"
-              />
-            </div>
-          </a>
-          {/* <div className="flex justify-center items-center bg-purple-300 bg-opacity-15 border-2 border-purple-300 rounded-md p-4 min-h-[6rem] hover:scale-105 ease-in-out duration-300">
-            <img
-              src="/images/waterloo_arts_logo_horiz_rgb.png"
-              alt="University of Waterloo"
-              className="h-auto max-w-full object-contain"
-            />
-          </div>
-          <div className="flex justify-center items-center bg-purple-300 bg-opacity-15 border-2 border-purple-300 rounded-md p-4 min-h-[6rem] hover:scale-105 ease-in-out duration-300">
-            <img
-              src="/images/waterloo_environment_logo_horiz_rgb.png"
-              alt="University of Waterloo"
-              className="h-auto max-w-full object-contain"
-            />
-          </div> */}
+          {sponsorsData.slice(3).map((sponsor, index) => (
+            <SponsorCard key={index} {...sponsor} width="70%" />
+          ))}
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default Sponsors;

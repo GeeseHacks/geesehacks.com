@@ -1,5 +1,7 @@
 import React from "react";
 
+
+// To whoever who encounter this file: please consider making the code dynamic (use the same card from sponsors)
 export default function Partners() {
   return (
     <div className="p-8 sm:p-16 flex flex-col items-center justify-center relative">
