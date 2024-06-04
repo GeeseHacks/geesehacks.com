@@ -12,38 +12,46 @@ export default function Sponsors() {
       ></div>
       <div className="w-full sm:w-3/4 z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="flex justify-center items-center bg-purple-300 bg-opacity-15 border-2 border-purple-300 rounded-md p-4 min-h-[6rem] hover:scale-105 ease-in-out duration-300">
-            <img
-              src="/images/google_logo.png"
-              alt="Google"
-              className="h-auto max-w-[80%] object-contain"
-            />
-          </div>
-          <div className="flex justify-center items-center bg-purple-300 bg-opacity-15 border-2 border-purple-300 rounded-md p-4 min-h-[6rem] hover:scale-105 ease-in-out duration-300">
-            <img
-              src="/images/sunlife-logo-vector.webp"
-              alt="Sun Life"
-              className="h-auto max-w-[80%] object-contain"
-            />
-          </div>
+          <a href="https://about.google/" target="_blank" className="flex">
+            <div className="flex justify-center items-center bg-purple-300 bg-opacity-15 border-2 border-purple-300 rounded-md p-4 min-h-[6rem] hover:scale-105 ease-in-out duration-300">
+              <img
+                src="/images/google_logo.png"
+                alt="Google"
+                className="h-auto max-w-[80%] object-contain"
+              />
+            </div>
+          </a>
+          <a href="https://www.sunlife.ca/en/" target="_blank" className="flex">
+            <div className="flex justify-center items-center bg-purple-300 bg-opacity-15 border-2 border-purple-300 rounded-md p-4 min-h-[6rem] hover:scale-105 ease-in-out duration-300">
+              <img
+                src="/images/sunlife-logo-vector.webp"
+                alt="Sun Life"
+                className="h-auto max-w-[80%] object-contain"
+              />
+            </div>
+          </a>
         </div>
         <div className="grid grid-cols-1 gap-4 mt-4">
-          <div className="flex justify-center items-center bg-purple-300 bg-opacity-15 border-2 border-purple-300 rounded-md p-4 min-h-[6rem] hover:scale-105 ease-in-out duration-300">
-            <img
-              src="/images/uwaterloo_logo.png"
-              alt="University of Waterloo"
-              className="h-auto max-w-[70%] object-contain"
-            />
-          </div>
+          <a href="https://uwaterloo.ca/" target="_blank">
+            <div className="flex justify-center items-center bg-purple-300 bg-opacity-15 border-2 border-purple-300 rounded-md p-4 min-h-[6rem] hover:scale-105 ease-in-out duration-300">
+              <img
+                src="/images/uwaterloo_logo.png"
+                alt="University of Waterloo"
+                className="h-auto max-w-[70%] object-contain"
+              />
+            </div>
+          </a>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-1 gap-4 mt-4">
-          <div className="flex justify-center items-center bg-purple-300 bg-opacity-15 border-2 border-purple-300 rounded-md p-4 min-h-[6rem] hover:scale-105 ease-in-out duration-300">
-            <img
-              src="/images/cscan.webp"
-              alt="CS-Can"
-              className="h-auto max-w-[70%] object-contain"
-            />
-          </div>
+          <a href="https://cscan-infocan.ca/" target="_blank">
+            <div className="flex justify-center items-center bg-purple-300 bg-opacity-15 border-2 border-purple-300 rounded-md p-4 min-h-[6rem] hover:scale-105 ease-in-out duration-300">
+              <img
+                src="/images/cscan.webp"
+                alt="CS-Can"
+                className="h-auto max-w-[70%] object-contain"
+              />
+            </div>
+          </a>
           {/* <div className="flex justify-center items-center bg-purple-300 bg-opacity-15 border-2 border-purple-300 rounded-md p-4 min-h-[6rem] hover:scale-105 ease-in-out duration-300">
             <img
               src="/images/waterloo_arts_logo_horiz_rgb.png"
