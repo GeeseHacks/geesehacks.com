@@ -17,9 +17,10 @@ const Hero = () => {
             Hacker application opens soon. Stay Tuned!
           </h1>
         </div>
-        <div className="flex space-x-4 justify-center md:justify-start">
+        {/* UNCOMMENT WHEN APPLICATIONS ARE OPEN */}
+        {/* <div className="flex space-x-4 justify-center md:justify-start">
           <HeroButton href="/apply">Apply Now</HeroButton>
-        </div>
+        </div> */}
       </div>
       <div className="flex mt-8 sr-only md:not-sr-only">
         <AnimatedTerminal />

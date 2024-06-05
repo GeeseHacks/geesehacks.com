@@ -111,20 +111,22 @@ const Navbar: React.FC = () => {
           {/* <div className="hidden lg:flex lg:space-x-4 items-center pr-36 2xl:pr-0"> */}
           <div className="hidden lg:flex lg:space-x-4 items-center">
             {navLinks}
-            <Link
+            {/* UNCOMMENT WHEN APPLICATIONS ARE OPEN */}
+            {/* <Link
               href="/apply"
               className="px-6 py-2 bg-transparent border-2 border-white rounded-full text-white text-sm md:text-base lg:text-md xl:text-lg font-medium hover:bg-white hover:text-gray-900 transition-all duration-300 ease-in-out"
             >
               Apply Now
-            </Link>
+            </Link> */}
           </div>
         </div>
         {isOpen && (
           <div className="lg:hidden bg-gray-800 px-2 pt-2 pb-3 space-y-1 flex flex-col">
             {navLinks}
-            <Link href="/apply" className={linkStyle}>
+            {/* UNCOMMENT WHEN APPLICATIONS ARE OPEN */}
+            {/* <Link href="/apply" className={linkStyle}>
               Apply Now
-            </Link>
+            </Link> */}
           </div>
         )}
       </div>
