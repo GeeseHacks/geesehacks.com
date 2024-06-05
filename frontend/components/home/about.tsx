@@ -27,7 +27,7 @@ const About: React.FC = () => {
               GeeseHacks at the University of Waterloo 👏🚀
             </p>
             <p className="text-gray-300 text-left text-md md:text-lg z-20 relative">
-              Geese Hacks is an innovative hackathon that encapsulates the
+              GeeseHacks is an innovative hackathon that encapsulates the
               spirit of Waterloo&apos;s rigorous tech environment. Organized by
               students and for students, it&apos;s an arena where coding,
               creativity, and technology collide to transform ideas into

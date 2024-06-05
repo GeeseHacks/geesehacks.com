@@ -19,7 +19,7 @@ export default function Stats() {
         </div>
       </div>
       <div className="flex flex-wrap justify-center items-center mt-56 gap-4">
-        {['1000+', '25+', '50+', '40+'].map((stat, index) => (
+        {['$5000', '600+', '100+', '15'].map((stat, index) => (
           <div key={index} className="w-1/5 relative">
             <div className="absolute inset-0 transform translate-y-2 z-0 rounded-2xl shadow-stat-inner-shadow bg-stat-card-bg"></div>
             <div className="relative flex flex-col items-center rounded-2xl p-9 shadow-stat-card-shadow z-10 bg-stat-card-bg">
@@ -27,7 +27,7 @@ export default function Stats() {
                 {stat}
               </h1>
               <div className="text-sm sm:text-base md:text-base lg:text-m xl:text-l font-normal">
-                {['Applicants', 'Events', 'Organizers', 'Countries'][index]}
+                {['in Prizes', 'Hackers', 'Projects Submitted', 'Mentors'][index]}
               </div>
             </div>
           </div>
