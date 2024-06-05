@@ -1,0 +1,83 @@
+import React from "react";
+import Image from "next/image";
+
+interface Sponsor {
+  href: string;
+  src: string;
+  alt: string;
+}
+
+const sponsorsData: Sponsor[] = [
+  {
+    href: "https://about.google/",
+    src: "/images/google_logo.png",
+    alt: "Google",
+  },
+  {
+    href: "https://www.sunlife.ca/en/",
+    src: "/images/sunlife-logo-vector.webp",
+    alt: "Sun Life",
+  },
+  {
+    href: "https://uwaterloo.ca/",
+    src: "/images/uwaterloo_logo.png",
+    alt: "University of Waterloo",
+  },
+  {
+    href: "https://cscan-infocan.ca/",
+    src: "/images/cscan.webp",
+    alt: "CS-Can",
+  },
+];
+
+interface SponsorCardProps {
+  href: string;
+  src: string;
+  alt: string;
+  width: string;
+}
+
+const SponsorCard: React.FC<SponsorCardProps> = ({ href, src, alt, width }) => {
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" className="flex">
+      <div className="flex justify-center items-center bg-purple-300 bg-opacity-15 border-2 border-purple-300 rounded-md p-4 min-h-[10rem] hover:scale-105 ease-in-out duration-300 w-full">
+        <div>
+          <Image src={src} alt={alt} layout="responsive" width={0} height={50} />
+        </div>
+      </div>
+    </a>
+  );
+};
+
+const Sponsors: React.FC = () => {
+  return (
+    <div className="p-8 sm:p-16 flex flex-col items-center justify-center relative">
+      <h1 className="text-2xl sm:text-4xl font-bold text-center text-white mb-4 sm:mb-8">
+        Our Sponsors
+      </h1>
+      <div
+        className="absolute w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-purple-600 rounded-full blur-3xl opacity-30"
+        style={{ top: "30%" }}
+      ></div>
+      <div className="w-full sm:w-3/4 z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {sponsorsData.slice(0, 2).map((sponsor, index) => (
+            <SponsorCard key={index} {...sponsor} width="80%" />
+          ))}
+        </div>
+        <div className="grid grid-cols-1 gap-4 mt-4">
+          {sponsorsData.slice(2, 3).map((sponsor, index) => (
+            <SponsorCard key={index} {...sponsor} width="70%" />
+          ))}
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-1 gap-4 mt-4">
+          {sponsorsData.slice(3).map((sponsor, index) => (
+            <SponsorCard key={index} {...sponsor} width="70%" />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Sponsors;

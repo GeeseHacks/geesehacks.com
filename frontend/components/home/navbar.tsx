@@ -1,15 +1,52 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
+
+  const handleScroll = () => {
+    // The px valid needs to match the size when the hamburger icon appears
+    const isLargeScreen = window.matchMedia("(min-width: 1024px)").matches;
+    if (isLargeScreen && window.scrollY > 50) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
+
+  const [isVisible, setIsVisible] = useState<boolean>(true);
+  let lastScrollY = 0;
+
+  useEffect(() => {
+
+    // Logic to handle scroll animation
+    const handleVisibility = () => {
+      if (window.scrollY < lastScrollY || window.scrollY < 50) {
+        setIsVisible(true);
+      } else if (window.scrollY > lastScrollY) {
+        setIsVisible(false);
+      }
+      lastScrollY = window.scrollY;
+
+      handleScroll();
+    };
+
+    window.addEventListener('scroll', handleVisibility);
+
+
+    return () => {
+      window.removeEventListener('scroll', handleVisibility);
+    };
+  }, []);
 
   const links = [
     // urls that start with # correspond to the id of the div that the link will scroll to
@@ -45,16 +82,19 @@ const Navbar: React.FC = () => {
   ));
 
   return (
-    <nav className="w-screen bg-transparent text-white fixed top-0 left-0 z-50 lg:pt-4 pt-0 px-4 sm:px-6 lg:px-8 xl:px-16">
+    <nav
+      className={`w-screen fixed top-0 left-0 text-white z-50 lg:pt-4 pt-0 px-4 sm:px-6 lg:px-8 xl:px-16 transition-all h-20 duration-300 ${scrolled ? `bg-[rgba(0,0,0,0.1)] fixed w-full ${isVisible ? 'top-0' : '-top-20'} transition-top duration-300 ease-in-out z-50` : "bg-transparent"
+        } `}
+    >
       <div className="mx-auto w-full 2xl:w-4/5">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between h-12">
           <div className="hidden lg:flex">
             <div className="flex-shrink-0 flex items-center">
               <Image
-                src="/images/geesehacksLogoTemp.png"
+                src="/images/geesehacksLogo.png"
                 alt="Logo"
-                width={40}
-                height={40}
+                width={45}
+                height={45}
               />
             </div>
           </div>
@@ -71,20 +111,22 @@ const Navbar: React.FC = () => {
           {/* <div className="hidden lg:flex lg:space-x-4 items-center pr-36 2xl:pr-0"> */}
           <div className="hidden lg:flex lg:space-x-4 items-center">
             {navLinks}
-            <Link
+            {/* UNCOMMENT WHEN APPLICATIONS ARE OPEN */}
+            {/* <Link
               href="/apply"
-              className="px-6 py-2 bg-transparent border-2 border-white rounded-full text-white text-sm md:text-base lg:text-lg font-medium hover:bg-white hover:text-gray-900 transition-all duration-300 ease-in-out"
+              className="px-6 py-2 bg-transparent border-2 border-white rounded-full text-white text-sm md:text-base lg:text-md xl:text-lg font-medium hover:bg-white hover:text-gray-900 transition-all duration-300 ease-in-out"
             >
               Apply Now
-            </Link>
+            </Link> */}
           </div>
         </div>
         {isOpen && (
           <div className="lg:hidden bg-gray-800 px-2 pt-2 pb-3 space-y-1 flex flex-col">
             {navLinks}
-            <Link href="/apply" className={linkStyle}>
+            {/* UNCOMMENT WHEN APPLICATIONS ARE OPEN */}
+            {/* <Link href="/apply" className={linkStyle}>
               Apply Now
-            </Link>
+            </Link> */}
           </div>
         )}
       </div>
@@ -95,7 +137,7 @@ const Navbar: React.FC = () => {
 export default Navbar;
 
 const linkStyle =
-  "px-3 py-2 rounded-md text-sm md:text-base lg:text-lg font-medium hover:bg-gray-700";
+  "px-3 py-2 rounded-md text-sm md:text-base lg:text-md xl:text-lg font-medium hover:bg-gray-700";
 
 const hamburger = (
   <svg

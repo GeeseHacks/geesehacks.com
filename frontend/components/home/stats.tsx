@@ -1,37 +1,38 @@
-import React from 'react'
+import React from "react";
 import Image from "next/image";
 
 export default function Stats() {
   return (
-    <div>
-      <div className="flex justify-center items-center">
-        <Image
-          src="/images/statsMainImage.png"
-          alt="Stats Image"
-          width={500}
-          height={500}
-        />
+    <div className="text-white">
+      <h1 className="text-4xl font-bold text-center mb-16 md:mb-10 pb-36">
+        Sponsors & Partners
+      </h1>
+      <div className="relative flex justify-center items-center">
+        <div className="absolute -bottom-16 w-48 h-48 md:w-50 md:h-50 bg-red-600 rounded-full blur-2xl opacity-40"></div>
+        <div className="absolute">
+          <Image
+            src="/images/statsMainImage.png"
+            alt="Stats Image"
+            width={500}
+            height={500}
+          />
+        </div>
       </div>
-      <div className="flex flex-wrap justify-center items-center">
-        <div className="flex flex-col items-center"> 
-          <h1 className="inline-block pr-20 pl-20 pb-3 sm:text-2xl md:text-3xl lg:text-5xl xl:text-5xl font-bold text-white">1000+</h1> 
-          <div className="text-sm sm:text-base md:text-base lg:text-m xl:text-l font-normal text-gray-500 pb-10">Applicants</div>
-        </div>
-        <div className="flex flex-col items-center"> 
-          <h1 className="inline-block pr-20 pl-20 pb-3 sm:text-2xl md:text-3xl lg:text-5xl xl:text-5xl font-bold text-white">25+</h1> 
-          <div className="text-sm sm:text-base md:text-base lg:text-m xl:text-l font-normal text-gray-500 pb-10">Events</div>
-        </div>
-        <div className="flex flex-col items-center"> 
-          <h1 className="inline-block pr-20 pl-20 pb-3 sm:text-2xl md:text-3xl lg:text-5xl xl:text-5xl font-bold text-white">50+</h1> 
-          <div className="text-sm sm:text-base md:text-base lg:text-m xl:text-l font-normal text-gray-500 pb-10">Organizers</div>
-        </div>
-        <div className="flex flex-col items-center"> 
-          <h1 className="inline-block pr-20 pl-20 pb-3 sm:text-2xl md:text-3xl lg:text-5xl xl:text-5xl font-bold text-white">40+</h1> 
-          <div className="text-sm sm:text-base md:text-base lg:text-m xl:text-l font-normal text-gray-500 pb-10">Countries</div>
-        </div>
- 
+      <div className="flex flex-wrap justify-center items-center mt-56 gap-4">
+        {['$5000', '600+', '100+', '15'].map((stat, index) => (
+          <div key={index} className="w-1/5 relative">
+            <div className="absolute inset-0 transform translate-y-2 z-0 rounded-2xl shadow-stat-inner-shadow bg-stat-card-bg"></div>
+            <div className="relative flex flex-col items-center rounded-2xl p-9 shadow-stat-card-shadow z-10 bg-stat-card-bg">
+              <h1 className="inline-block sm:text-2xl md:text-3xl lg:text-5xl xl:text-5xl font-bold md:pb-5">
+                {stat}
+              </h1>
+              <div className="text-sm sm:text-base md:text-base lg:text-m xl:text-l font-normal">
+                {['in Prizes', 'Hackers', 'Projects Submitted', 'Mentors'][index]}
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
-
     </div>
-  )
+  );
 }
