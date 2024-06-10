@@ -14,10 +14,10 @@ const Hero = () => {
         </h1>
         <div className="space-y-6">
           <h1 className="text-white text-2xl text-center mx-2 sm:font-medium sm:text-left lg:text-3xl text-shadow-white-glow">
-            January 10-13 · Waterloo, ON
+            January 10-12 · Waterloo, ON
           </h1>
           <h1 className="text-white mx-2 text-center font-semilight text-lg lg:text-xl lg:text-left text-shadow-white-glow">
-            Hacker application opens soon. Stay Tuned!
+            Hacker applications open soon. Stay Tuned!
           </h1>
         </div>
 

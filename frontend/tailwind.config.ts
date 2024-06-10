@@ -16,7 +16,7 @@ const config: Config = {
       },
       boxShadow: {
         'purple-shadow': '0 0 20px 10px rgba(158, 99, 234, 0.6)', // For About Us box
-        'terminal-glow1': '0 0 10px 12px rgba(160, 65, 255, 0.77), 0 0 80px 40px rgba(172, 48, 249, 1)', // For Hero section terminal
+        'terminal-glow1': '0 0 10px 12px rgba(160, 65, 255, 0.77), 0 0 150px 1px rgba(172, 48, 249, 1)', // For Hero section terminal
         'stat-inner-shadow': 'inset 0 0 5px 2px rgba(255, 255, 255, 0.3)',
         'stat-card-shadow': 'inset 0 0 5px 2px rgba(255, 255, 255, 0.3), 10px 10px 30px rgba(170, 34, 156, 0.6), -15px -15px 30px rgba(50, 15, 133, 0.6)',
       },
