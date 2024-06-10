@@ -43,7 +43,7 @@ const Faq: React.FC = () => {
   const secondColumnItems = faqItems.filter((_, index) => index % 2 !== 0);
 
   return (
-    <div className="h-screen flex flex-col items-center px-4 mt-24">
+    <div className="h-full flex flex-col items-center px-4 my-24">
       <h1 className="relative text-4xl font-bold text-center text-white mb-8 drop-shadow-[0_0_20px_#94A5FF]">
         Frequently Asked Questions
       </h1>
