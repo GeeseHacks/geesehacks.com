@@ -52,7 +52,7 @@ const Navbar: React.FC = () => {
     // urls that start with # correspond to the id of the div that the link will scroll to
     { url: "#hero", text: "Home" },
     { url: "#about", text: "About" },
-    { url: "#partners", text: "Sponsors" },
+    { url: "#sponsors", text: "Sponsors" },
     { url: "#faq", text: "FAQ" },
   ];
 
