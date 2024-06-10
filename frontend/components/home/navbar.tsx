@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -10,7 +10,7 @@ const applicationOpen = false;
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
+  const navbarRef = useRef<HTMLDivElement>(null);
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
@@ -45,9 +45,18 @@ const Navbar: React.FC = () => {
 
     window.addEventListener('scroll', handleVisibility);
 
+    // event listener to close the navbar when clicking outside
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navbarRef.current && !navbarRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
 
     return () => {
       window.removeEventListener('scroll', handleVisibility);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
 
@@ -86,6 +95,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
+      ref={navbarRef}
       className={`w-screen fixed top-0 left-0 text-white z-50 lg:pt-4 pt-0 px-4 sm:px-6 lg:px-8 xl:px-16 transition-all h-20 duration-300 ${scrolled ? `bg-[rgba(0,0,0,0.1)] fixed w-full ${isVisible ? 'top-0' : '-top-20'} transition-top duration-300 ease-in-out z-50` : "bg-transparent"
         } `}
     >
