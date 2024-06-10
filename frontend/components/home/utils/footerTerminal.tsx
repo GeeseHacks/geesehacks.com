@@ -36,7 +36,7 @@ const FooterTerminal: React.FC = () => {
   };
 
   return (
-    <div className="relative bg-black bg-opacity-85 text-white p-8 pt-16 font-mono flex flex-col h-80 rounded-xl drop-shadow-xl w-[calc(35vw)] md:text-sm lg:text-base">
+    <div className="relative bg-black bg-opacity-85 text-white p-8 pt-16 font-mono flex flex-col h-80 rounded-xl drop-shadow-xl w-[calc(35vw)] md:text-sm lg:text-base  max-w-[600px]">
       {/* First line */}
       <div className="flex flex-row">
         <span className="text-gray-500 px-3">$</span>
