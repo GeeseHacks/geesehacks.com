@@ -2,6 +2,9 @@ import React from "react";
 import AnimatedTerminal from "./utils/terminal";
 import HeroButton from "./utils/heroButton";
 
+// SET TO TRUE WHEN APPLICATION OPENS
+const applicationOpen = false;
+
 const Hero = () => {
   return (
     <div className="bg-hero-image bg-cover w-full h-screen flex items-center justify-center md:justify-evenly bg-bottom">
@@ -17,10 +20,10 @@ const Hero = () => {
             Hacker application opens soon. Stay Tuned!
           </h1>
         </div>
-        {/* UNCOMMENT WHEN APPLICATIONS ARE OPEN */}
-        {/* <div className="flex space-x-4 justify-center md:justify-start">
+
+        {applicationOpen && <div className="flex space-x-4 justify-center md:justify-start">
           <HeroButton href="/apply">Apply Now</HeroButton>
-        </div> */}
+        </div>}
       </div>
       <div className="flex mt-8 sr-only md:not-sr-only">
         <AnimatedTerminal />
