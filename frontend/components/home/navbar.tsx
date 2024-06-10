@@ -87,7 +87,7 @@ const Navbar: React.FC = () => {
       href={link.url}
       className={linkStyle}
       key={link.url}
-      onClick={smoothScroll}
+      onClick={(e)=>{smoothScroll(e); setIsOpen(false);}}
     >
       {link.text}
     </a>
