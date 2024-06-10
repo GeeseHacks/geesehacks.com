@@ -10,8 +10,8 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        'hero-image': "url('~/assets/heroBackground.png')",
-        'wave-image': "url('~/assets/wave.png')",
+        'hero-image': "url('/images/heroBackground.png')",
+        'wave-image': "url('/images/wave.png')",
         
       },
       boxShadow: {
