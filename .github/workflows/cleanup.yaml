@@ -29,7 +29,7 @@ jobs:
           current_date=$(date +%s)
 
           # List all deployments
-          deployments=$(vercel ls --project $VERCEL_PROJECT_ID --scope $VERCEL_ORG_ID --token $VERCEL_TOKEN --yes)
+          deployments=$(vercel ls --token $VERCEL_TOKEN --yes)
 
           # Extract deployment UIDs, creation times, and targets from the output
           echo "$deployments" | while IFS= read -r line; do
