@@ -6,14 +6,3 @@
   background-color: #121E2F;
 }
 
-.small-qoutation {
-  @apply text-8xl font-bold absolute;
-}
-
-.large-qoutation {
-  @apply text-[250px] md:text-[320px] font-bold absolute opacity-15;
-}
-
-.wave {
-  @apply bg-wave-image bg-cover w-full h-52 lg:h-72 absolute;
-}
