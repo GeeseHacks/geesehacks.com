@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3 # Updated to v3 for Node.js 20 support
 
       - name: Install Vercel CLI
         run: npm install -g vercel
@@ -29,7 +29,7 @@ jobs:
           current_date=$(date +%s)
 
           # List all deployments
-          deployments=$(vercel list $VERCEL_PROJECT_NAME --confirm --scope $VERCEL_ORG_ID --token $VERCEL_TOKEN --output=json)
+          deployments=$(VERCEL_ORG_ID=$VERCEL_ORG_ID VERCEL_PROJECT_NAME=$VERCEL_PROJECT_NAME VERCEL_TOKEN=$VERCEL_TOKEN vercel ls --confirm --scope $VERCEL_ORG_ID --token $VERCEL_TOKEN --json)
 
           # Get the current production deployment UID
           current_prod_deployment=$(echo $deployments | jq -r '.deployments[] | select(.target == "production" and .state == "READY") | .uid')
@@ -50,6 +50,6 @@ jobs:
             # Delete the deployment if it is older than the age limit and not the current production deployment
             if [ $deployment_age_days -gt $AGE_LIMIT_DAYS ] && [ "$uid" != "$current_prod_deployment" ]; then
               echo "Deleting deployment: $uid (Age: $deployment_age_days days, Target: $target)"
-              vercel rm $uid --yes --token $VERCEL_TOKEN
+              VERCEL_ORG_ID=$VERCEL_ORG_ID VERCEL_PROJECT_NAME=$VERCEL_PROJECT_NAME VERCEL_TOKEN=$VERCEL_TOKEN vercel rm $uid --yes --token $VERCEL_TOKEN
             fi
           done
