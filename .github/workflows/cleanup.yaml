@@ -19,7 +19,7 @@ jobs:
       - name: Clean up old deployments
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_PROJECT_NAME: ${{ secrets.VERCEL_PROJECT_NAME }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
         run: |
           # Define the age limit (in days)
@@ -29,10 +29,10 @@ jobs:
           current_date=$(date +%s)
 
           # List all deployments
-          deployments=$(VERCEL_ORG_ID=$VERCEL_ORG_ID VERCEL_PROJECT_NAME=$VERCEL_PROJECT_NAME VERCEL_TOKEN=$VERCEL_TOKEN vercel ls --confirm --scope $VERCEL_ORG_ID --token $VERCEL_TOKEN)
+          deployments=$(vercel ls --project $VERCEL_PROJECT_ID --scope $VERCEL_ORG_ID --token $VERCEL_TOKEN --yes)
 
           # Extract deployment UIDs, creation times, and targets from the output
-          while IFS= read -r line; do
+          echo "$deployments" | while IFS= read -r line; do
             uid=$(echo "$line" | awk '{print $1}')
             created_at=$(echo "$line" | awk '{print $2}')
             target=$(echo "$line" | awk '{print $3}')
@@ -52,6 +52,6 @@ jobs:
             # Delete the deployment if it is older than the age limit and not the current production deployment
             if [ $deployment_age_days -gt $AGE_LIMIT_DAYS ] && [ "$uid" != "$current_prod_deployment" ]; then
               echo "Deleting deployment: $uid (Age: $deployment_age_days days, Target: $target)"
-              VERCEL_ORG_ID=$VERCEL_ORG_ID VERCEL_PROJECT_NAME=$VERCEL_PROJECT_NAME VERCEL_TOKEN=$VERCEL_TOKEN vercel rm $uid --yes --token $VERCEL_TOKEN
+              vercel rm $uid --yes --token $VERCEL_TOKEN
             fi
-          done <<< "$deployments"
+          done
