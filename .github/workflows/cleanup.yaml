@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3 # Updated to v3 for Node.js 20 support
+        uses: actions/checkout@v3
 
       - name: Install Vercel CLI
         run: npm install -g vercel
@@ -22,36 +22,55 @@ jobs:
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
         run: |
+          echo "[DEBUG] Starting cleanup job"
+
           # Define the age limit (in days)
           AGE_LIMIT_DAYS=7
+          echo "[DEBUG] Age limit set to $AGE_LIMIT_DAYS days"
 
           # Get the current date in seconds since epoch
           current_date=$(date +%s)
+          echo "[DEBUG] Current date (epoch): $current_date"
 
           # List all deployments
-          deployments=$(vercel ls --token $VERCEL_TOKEN --yes)
+          deployments=$(vercel ls --token $VERCEL_TOKEN --yes --project $VERCEL_PROJECT_ID)
+          echo "[DEBUG] Deployments retrieved: $deployments"
 
           # Extract deployment UIDs, creation times, and targets from the output
-          echo "$deployments" | while IFS= read -r line; do
-            uid=$(echo "$line" | awk '{print $1}')
-            created_at=$(echo "$line" | awk '{print $2}')
-            target=$(echo "$line" | awk '{print $3}')
-            
-            # Convert the creation time to seconds since epoch
-            created_at_epoch=$(date -d "$created_at" +%s)
-            
-            # Calculate the deployment age in days
-            deployment_age_days=$(( (current_date - created_at_epoch) / 86400 ))
+          current_prod_deployment=""
+          echo "$deployments" | while read -r line; do
+            echo "[DEBUG] Processing line: $line"
+            if [[ "$line" == *https://* ]]; then
+              uid=$(echo "$line" | awk '{print $1}')
+              created_at=$(echo "$line" | awk '{print $2, $3, $4, $5, $6}')
+              target=$(echo "$line" | awk '{print $7}')
+              
+              echo "[DEBUG] Extracted UID: $uid"
+              echo "[DEBUG] Extracted Created At: $created_at"
+              echo "[DEBUG] Extracted Target: $target"
 
-            # Check if the deployment is the current production deployment
-            is_prod_deployment=$(vercel inspect $uid --token $VERCEL_TOKEN | grep '"target": "production"' | wc -l)
-            if [ $is_prod_deployment -eq 1 ]; then
-              current_prod_deployment=$uid
-            fi
+              # Convert the creation time to seconds since epoch
+              created_at_epoch=$(date -d "$created_at" +%s)
+              echo "[DEBUG] Created at (epoch): $created_at_epoch"
 
-            # Delete the deployment if it is older than the age limit and not the current production deployment
-            if [ $deployment_age_days -gt $AGE_LIMIT_DAYS ] && [ "$uid" != "$current_prod_deployment" ]; then
-              echo "Deleting deployment: $uid (Age: $deployment_age_days days, Target: $target)"
-              vercel rm $uid --yes --token $VERCEL_TOKEN
+              # Calculate the deployment age in days
+              deployment_age_days=$(( (current_date - created_at_epoch) / 86400 ))
+              echo "[DEBUG] Deployment age (days): $deployment_age_days"
+
+              # Check if the deployment is the current production deployment
+              if [ "$target" == "Production" ]; then
+                current_prod_deployment=$uid
+                echo "[DEBUG] Current production deployment UID: $current_prod_deployment"
+              fi
+
+              # Delete the deployment if it is older than the age limit and not the current production deployment
+              if [ $deployment_age_days -gt $AGE_LIMIT_DAYS ] && [ "$uid" != "$current_prod_deployment" ]; then
+                echo "[DEBUG] Deleting deployment: $uid (Age: $deployment_age_days days, Target: $target)"
+                vercel rm $uid --yes --token $VERCEL_TOKEN
+              else
+                echo "[DEBUG] Not deleting deployment: $uid (Age: $deployment_age_days days, Target: $target)"
+              fi
             fi
           done
+
+          echo "[DEBUG] Cleanup job finished"
