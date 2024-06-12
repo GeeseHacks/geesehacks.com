@@ -33,7 +33,7 @@ jobs:
           echo "[DEBUG] Current date (epoch): $current_date"
 
           # List all deployments
-          deployments=$(vercel ls --token $VERCEL_TOKEN --yes --project $VERCEL_PROJECT_ID)
+          deployments=$(vercel ls --token $VERCEL_TOKEN --yes)
           echo "[DEBUG] Deployments retrieved: $deployments"
 
           # Extract deployment UIDs, creation times, and targets from the output
