@@ -72,7 +72,7 @@ jobs:
             echo "[DEBUG] Deployment age (days): $deployment_age_days"
 
             # Check if the deployment is the current production deployment
-            if [ "$target" == "Production" ] && [ -z "$current_prod_deployment" ]; then
+            if [ "$target" == "Production" ]; then
               current_prod_deployment=$uid
               echo "[DEBUG] Current production deployment UID: $current_prod_deployment"
             fi
