@@ -13,6 +13,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
       - name: Install Vercel CLI
         run: npm install -g vercel
 
@@ -34,42 +39,42 @@ jobs:
 
           # List all deployments
           deployments=$(vercel ls --token $VERCEL_TOKEN --yes)
-          echo "[DEBUG] Deployments retrieved: $deployments"
-
-          # Extract deployment UIDs, creation times, and targets from the output
+          echo "[DEBUG] Deployments retrieved"
+          
+          # Initialize the current production deployment
           current_prod_deployment=""
-          echo "$deployments" | while read -r line; do
+
+          # Process each deployment
+          echo "$deployments" | tail -n +5 | head -n -2 | while read -r line; do
             echo "[DEBUG] Processing line: $line"
-            if [[ "$line" == *https://* ]]; then
-              uid=$(echo "$line" | awk '{print $1}')
-              created_at=$(echo "$line" | awk '{print $2, $3, $4, $5, $6}')
-              target=$(echo "$line" | awk '{print $7}')
-              
-              echo "[DEBUG] Extracted UID: $uid"
-              echo "[DEBUG] Extracted Created At: $created_at"
-              echo "[DEBUG] Extracted Target: $target"
+            uid=$(echo "$line" | awk '{print $1}')
+            created_at=$(echo "$line" | awk '{print $2, $3, $4, $5, $6}')
+            target=$(echo "$line" | awk '{print $7}')
 
-              # Convert the creation time to seconds since epoch
-              created_at_epoch=$(date -d "$created_at" +%s)
-              echo "[DEBUG] Created at (epoch): $created_at_epoch"
+            echo "[DEBUG] Extracted UID: $uid"
+            echo "[DEBUG] Extracted Created At: $created_at"
+            echo "[DEBUG] Extracted Target: $target"
 
-              # Calculate the deployment age in days
-              deployment_age_days=$(( (current_date - created_at_epoch) / 86400 ))
-              echo "[DEBUG] Deployment age (days): $deployment_age_days"
+            # Convert the creation time to seconds since epoch
+            created_at_epoch=$(date -d "$created_at" +%s)
+            echo "[DEBUG] Created at (epoch): $created_at_epoch"
 
-              # Check if the deployment is the current production deployment
-              if [ "$target" == "Production" ]; then
-                current_prod_deployment=$uid
-                echo "[DEBUG] Current production deployment UID: $current_prod_deployment"
-              fi
+            # Calculate the deployment age in days
+            deployment_age_days=$(( (current_date - created_at_epoch) / 86400 ))
+            echo "[DEBUG] Deployment age (days): $deployment_age_days"
 
-              # Delete the deployment if it is older than the age limit and not the current production deployment
-              if [ $deployment_age_days -gt $AGE_LIMIT_DAYS ] && [ "$uid" != "$current_prod_deployment" ]; then
-                echo "[DEBUG] Deleting deployment: $uid (Age: $deployment_age_days days, Target: $target)"
-                vercel rm $uid --yes --token $VERCEL_TOKEN
-              else
-                echo "[DEBUG] Not deleting deployment: $uid (Age: $deployment_age_days days, Target: $target)"
-              fi
+            # Check if the deployment is the current production deployment
+            if [ "$target" == "Production" ]; then
+              current_prod_deployment=$uid
+              echo "[DEBUG] Current production deployment UID: $current_prod_deployment"
+            fi
+
+            # Delete the deployment if it is older than the age limit and not the current production deployment
+            if [ $deployment_age_days -gt $AGE_LIMIT_DAYS ] && [ "$uid" != "$current_prod_deployment" ]; then
+              echo "[DEBUG] Deleting deployment: $uid (Age: $deployment_age_days days, Target: $target)"
+              vercel rm $uid --yes --token $VERCEL_TOKEN
+            else
+              echo "[DEBUG] Not deleting deployment: $uid (Age: $deployment_age_days days, Target: $target)"
             fi
           done
 
