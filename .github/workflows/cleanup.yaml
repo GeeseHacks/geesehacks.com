@@ -39,8 +39,8 @@ jobs:
 
           # List all deployments
           deployments=$(vercel ls --token $VERCEL_TOKEN --yes)
-          echo "[DEBUG] Deployments retrieved"
-          
+          echo "[DEBUG] Deployments retrieved: $deployments"
+
           # Initialize the current production deployment
           current_prod_deployment=""
 
@@ -48,7 +48,7 @@ jobs:
           echo "$deployments" | tail -n +5 | head -n -2 | while read -r line; do
             echo "[DEBUG] Processing line: $line"
             uid=$(echo "$line" | awk '{print $1}')
-            created_at=$(echo "$line" | awk '{print $2, $3, $4, $5, $6}')
+            created_at=$(echo "$line" | awk '{$1=""; print $0}' | sed 's/  */ /g' | cut -d ' ' -f 2-6)
             target=$(echo "$line" | awk '{print $7}')
 
             echo "[DEBUG] Extracted UID: $uid"
