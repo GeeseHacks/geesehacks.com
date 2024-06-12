@@ -11,7 +11,12 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3 # Updated to v3 for Node.js 20 support
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
 
       - name: Install jq
         run: sudo apt-get install -y jq
@@ -35,7 +40,7 @@ jobs:
 
           echo "Fetching the list of all deployments..."
           # Get the list of all deployments with their creation times
-          deployments=$(curl -s -X GET "https://api.vercel.com/v6/deployments?projectId=$VERCEL_PROJECT_ID" -H "Authorization: Bearer $VERCEL_TOKEN" | jq -r '.deployments[] | "\(.uid) \(.createdAt) \(.url) \(.target)"')
+          deployments=$(curl -s -X GET "https://api.vercel.com/v6/deployments?projectId=$VERCEL_PROJECT_ID&limit=50" -H "Authorization: Bearer $VERCEL_TOKEN" | jq -r '.deployments[] | "\(.uid) \(.createdAt) \(.url) \(.target)"')
 
           # Convert deployments list to an array
           readarray -t deployments_array <<< "$deployments"
