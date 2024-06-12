@@ -63,7 +63,7 @@ jobs:
             # Delete the deployment if it is older than the age limit and not the current production deployment
             if [ $deployment_age_days -gt $AGE_LIMIT_DAYS ] && [ "$url" != "$current_prod_deployment_url" ]; then
               echo "Deleting deployment: $uid (Age: $deployment_age_days days, Target: $target, URL: $url)"
-              # curl -s -X DELETE "https://api.vercel.com/v6/deployments/$uid" -H "Authorization: Bearer $VERCEL_TOKEN"
+              curl -s -X DELETE "https://api.vercel.com/v6/deployments/$uid" -H "Authorization: Bearer $VERCEL_TOKEN"
             else
               echo "Keeping deployment: $uid (Age: $deployment_age_days days, Target: $target, URL: $url)"
             fi
