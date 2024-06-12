@@ -47,24 +47,32 @@ jobs:
           # Process each deployment
           echo "$deployments" | tail -n +5 | head -n -2 | while read -r line; do
             echo "[DEBUG] Processing line: $line"
-            uid=$(echo "$line" | awk '{print $1}')
-            created_at=$(echo "$line" | awk '{$1=""; print $0}' | sed 's/  */ /g' | cut -d ' ' -f 2-6)
-            target=$(echo "$line" | awk '{print $7}')
 
+            # Extract fields
+            age=$(echo "$line" | awk '{print $1}')
+            uid=$(echo "$line" | awk '{print $2}')
+            target=$(echo "$line" | awk '{print $4}')
+
+            echo "[DEBUG] Extracted Age: $age"
             echo "[DEBUG] Extracted UID: $uid"
-            echo "[DEBUG] Extracted Created At: $created_at"
             echo "[DEBUG] Extracted Target: $target"
 
-            # Convert the creation time to seconds since epoch
-            created_at_epoch=$(date -d "$created_at" +%s)
-            echo "[DEBUG] Created at (epoch): $created_at_epoch"
+            # Determine the age in days
+            unit=$(echo "$age" | grep -o '[a-zA-Z]')
+            value=$(echo "$age" | grep -o '[0-9]*')
 
-            # Calculate the deployment age in days
-            deployment_age_days=$(( (current_date - created_at_epoch) / 86400 ))
+            if [ "$unit" == "d" ]; then
+              deployment_age_days=$value
+            elif [ "$unit" == "h" ]; then
+              deployment_age_days=$((value / 24))
+            else
+              deployment_age_days=0
+            fi
+
             echo "[DEBUG] Deployment age (days): $deployment_age_days"
 
             # Check if the deployment is the current production deployment
-            if [ "$target" == "Production" ]; then
+            if [ "$target" == "Production" ] && [ -z "$current_prod_deployment" ]; then
               current_prod_deployment=$uid
               echo "[DEBUG] Current production deployment UID: $current_prod_deployment"
             fi
