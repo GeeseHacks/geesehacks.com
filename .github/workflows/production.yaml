@@ -2,7 +2,8 @@ name: Vercel Production Deployment
 
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_HOMEPAGE }}
+  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 
 on:
   push:
@@ -15,10 +16,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
 
@@ -26,36 +27,13 @@ jobs:
         run: npm install -g vercel
       
       - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel pull --yes --environment=production --token=$VERCEL_TOKEN
       
       - name: Build Project Artifacts
-        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel build --prod --token=$VERCEL_TOKEN
 
       - name: Deploy Project Artifacts
         id: deploy
         run: |
-          DEPLOYMENT_URL=$(vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }} --env VERCEL_ORG_ID=${{ secrets.VERCEL_ORG_ID }} --env VERCEL_PROJECT_ID=${{ secrets.VERCEL_PROJECT_ID }})
+          DEPLOYMENT_URL=$(vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN --env VERCEL_ORG_ID=$VERCEL_ORG_ID --env VERCEL_PROJECT_ID=$VERCEL_PROJECT_ID)
           echo "DEPLOYMENT_URL=$DEPLOYMENT_URL" >> $GITHUB_ENV
-
-      # - name: Update GitHub Deployment Status
-      #   uses: actions/github-script@v6
-      #   with:
-      #     github-token: ${{ secrets.GITHUB_TOKEN }}
-      #     script: |
-      #       const githubContext = github.context;
-      #       const deploymentId = githubContext.payload.deployment.id;
-      #       const owner = githubContext.repo.owner;
-      #       const repo = githubContext.repo.repo;
-      #       const environmentUrl = process.env.DEPLOYMENT_URL;
-      #       const logUrl = `https://github.com/${owner}/${repo}/actions/runs/${githubContext.runId}`;
-
-      #       await github.repos.createDeploymentStatus({
-      #         owner: owner,
-      #         repo: repo,
-      #         deployment_id: deploymentId,
-      #         state: 'success',
-      #         environment_url: environmentUrl,
-      #         log_url: logUrl,
-      #         description: 'Deployment finished successfully.',
-      #         auto_inactive: true
-      #       });
