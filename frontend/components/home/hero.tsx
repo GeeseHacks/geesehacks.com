@@ -26,12 +26,16 @@ const Hero = () => {
         </div>
 
         <div className="flex flex-row justify-center md:justify-normal gap-6 px-2">
-          <div className="rounded-full bg-[#EAE0D5] p-2">
-            <FaInstagram size="30px"/>
-          </div>
-          <div className="rounded-full bg-[#EAE0D5] p-2">
-            <FaLinkedinIn size="30px"/>
-          </div>
+          <a href="https://www.instagram.com/geesehacks/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-300">
+            <div className="rounded-full bg-[#EAE0D5] p-2">
+              <FaInstagram size="30px" />
+            </div>
+          </a>
+          <a href="https://ca.linkedin.com/company/geesehacks-hackathon" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-300">
+            <div className="rounded-full bg-[#EAE0D5] p-2">
+              <FaLinkedinIn size="30px" />
+            </div>
+          </a>
         </div>
 
         {applicationOpen && <div className="flex space-x-4 justify-center md:justify-start">
