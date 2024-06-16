@@ -25,7 +25,7 @@ const Hero = () => {
           </h1>
         </div>
 
-        <div className="flex flex-row gap-6 px-2">
+        <div className="flex flex-row justify-center md:justify-normal gap-6 px-2">
           <div className="rounded-full bg-[#EAE0D5] p-2">
             <FaInstagram size="30px"/>
           </div>
