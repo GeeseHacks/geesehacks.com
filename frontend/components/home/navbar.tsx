@@ -96,7 +96,7 @@ const Navbar: React.FC = () => {
   return (
     <nav
       ref={navbarRef}
-      className={`w-screen fixed top-0 left-0 text-white z-50 lg:pt-4 pt-0 px-4 sm:px-6 lg:px-8 xl:px-16 transition-all h-20 duration-300 ${scrolled ? `bg-[rgba(0,0,0,0.1)] fixed w-full ${isVisible ? 'top-0' : '-top-20'} transition-top duration-300 ease-in-out z-50` : "bg-transparent"
+      className={`w-screen fixed top-0 left-0 text-white z-50 lg:pt-4 pt-0 px-4 sm:px-6 lg:px-8 2xl:px-0 transition-all h-20 duration-300 ${scrolled ? `bg-[rgba(0,0,0,0.1)] fixed w-full ${isVisible ? 'top-0' : '-top-20'} transition-top duration-300 ease-in-out z-50` : "bg-transparent"
         } `}
     >
       <div className="mx-auto w-full 2xl:w-4/5">
