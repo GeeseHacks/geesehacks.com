@@ -21,7 +21,7 @@ export default function Partners() {
           >
             <div className="flex justify-center items-center bg-purple-300 bg-opacity-15 border-2 border-purple-300 rounded-md p-4 min-h-[6rem] hover:scale-105 ease-in-out duration-300">
               <img
-                src="/images/gdsc.png"
+                src="/images/gdsc-uw.png"
                 alt="Google Developer Student Club"
                 className="h-auto max-w-[80%] object-contain"
               />
@@ -30,7 +30,7 @@ export default function Partners() {
           <a href="https://cscan-infocan.ca/" target="_blank" className="flex">
             <div className="flex justify-center items-center bg-purple-300 bg-opacity-15 border-2 border-purple-300 rounded-md p-4 min-h-[6rem] hover:scale-105 ease-in-out duration-300">
               <img
-                src="/images/cscan.webp"
+                src="/images/cs-can.png"
                 alt="CS-Can"
                 className="h-auto max-w-[80%] object-contain"
               />
