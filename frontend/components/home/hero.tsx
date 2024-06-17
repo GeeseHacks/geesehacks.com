@@ -31,7 +31,7 @@ const Hero = () => {
               <FaInstagram size="30px" />
             </div>
           </a>
-          <a href="https://ca.linkedin.com/company/geesehacks-hackathon" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-300">
+          <a href="https://www.linkedin.com/company/geesehacks" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-300">
             <div className="rounded-full bg-[#EAE0D5] p-2">
               <FaLinkedinIn size="30px" />
             </div>

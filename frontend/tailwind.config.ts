@@ -15,6 +15,7 @@ const config: Config = {
         
       },
       boxShadow: {
+        'organizers-purple-shadow': '0 0 5px 5px rgba(158, 99, 234, 0.4)', // For the organizer images in the carousel
         'purple-shadow': '0 0 20px 10px rgba(158, 99, 234, 0.6)', // For About Us box
         'terminal-glow1': '0 0 10px 12px rgba(160, 65, 255, 0.10), 0 0 150px 1px rgba(172, 48, 249, 1)', // For Hero section terminal
         'stat-inner-shadow': 'inset 0 0 5px 2px rgba(255, 255, 255, 0.3)',
