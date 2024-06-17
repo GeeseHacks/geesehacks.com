@@ -69,17 +69,24 @@ const Carousel: React.FC = () => {
   }, []);
 
   return (
-    <div className="overflow-hidden w-full p-2">
-      <div
-        className="flex will-change-transform gap-5"
-        ref={containerRef}
-        style={{ whiteSpace: 'nowrap' }}
-      >
-        {images.concat(images).map((image, index) => (
-            <Image src={image} alt={`Organizer ${index + 1}`} className="w-16 h-16 rounded-full object-contain shadow-organizers-purple-shadow border-2" width={60} height={60} />
-        ))}
-      </div>
-    </div>
+    <div className="flex grow w-full overflow-hidden relative">
+        <div className="w-full p-2">
+            <div
+                className="flex will-change-transform gap-5"
+                ref={containerRef}
+                style={{ whiteSpace: 'nowrap' }}
+            >
+                {images.concat(images).map((image, index) => (
+                    <Image src={image} alt={`Organizer ${index + 1}`} className="w-16 h-16 rounded-full object-contain shadow-organizers-purple-shadow border-2" width={60} height={60} />
+                ))}
+            </div>
+        </div>
+        <div
+        className="w-full h-full absolute"
+        style={{
+            backgroundImage: "linear-gradient(to right, rgba(18, 30, 47, 1), rgba(18, 30, 47, 0) 15%, rgba(18, 30, 47, 0) 85%, rgba(18, 30, 47, 1))"
+        }}
+        ></div>    </div>
   )
 }
 
