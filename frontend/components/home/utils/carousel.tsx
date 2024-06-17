@@ -13,14 +13,15 @@ import events4 from '/public/images/organizerHeadshots/events/mackenzie.jpg'
 import events5 from '/public/images/organizerHeadshots/events/saima.jpg'
 
 import marketing1 from '/public/images/organizerHeadshots/marketing/angela.jpg'
-import marketing2 from '/public/images/organizerHeadshots/marketing/jane.jpg'
+import marketing2 from '/public/images/organizerHeadshots/marketing/lin.jpg'
+import marketing3 from '/public/images/organizerHeadshots/marketing/jane.jpg'
 
 import software1 from '/public/images/organizerHeadshots/software/ri.jpg'
 import software2 from '/public/images/organizerHeadshots/software/eric.jpg'
 
 import sponsorship1 from '/public/images/organizerHeadshots/sponsorship/linda.jpg'
 import sponsorship2 from '/public/images/organizerHeadshots/sponsorship/ajai.jpg'
-import sponsorship3 from '/public/images/organizerHeadshots/sponsorship/hareeee.jpg'
+import sponsorship3 from '/public/images/organizerHeadshots/sponsorship/harry.jpg'
 import sponsorship4 from '/public/images/organizerHeadshots/sponsorship/karanveer.jpg'
 import sponsorship5 from '/public/images/organizerHeadshots/sponsorship/srinikesh.jpg'
 
@@ -35,6 +36,7 @@ const images = [
   events5,
   marketing1,
   marketing2,
+  marketing3,
   software1,
   software2,
   sponsorship1,
