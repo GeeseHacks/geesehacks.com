@@ -4,9 +4,9 @@ import React from "react";
 // To whoever who encounter this file: please consider making the code dynamic (use the same card from sponsors)
 export default function Partners() {
   return (
-    <div className="p-8 sm:p-16 flex flex-col items-center justify-center relative">
-      <h1 className="text-2xl sm:text-4xl font-bold text-center text-white mb-4 sm:mb-8">
-        Our Partners
+    <div className="p-8 sm:p-16 flex flex-col items-center justify-center relative text-white">
+      <h1 className="text-4xl md:text-6xl md:font-medium text-center mb-12 md:mb-24 text-shadow-section-header-glow">
+        And Our Partners
       </h1>
       <div
         className="absolute w-72 h-36 md:w-80 md:h-40 lg:w-96 lg:h-48 bg-purple-600 rounded-full blur-3xl opacity-30"
@@ -23,7 +23,8 @@ export default function Partners() {
               <img
                 src="/images/gdsc-uw.png"
                 alt="Google Developer Student Club"
-                className="h-auto max-w-[80%] object-contain"
+                // max-w-full is used because the GDSC image is very wide. If another image is used, this may not be necessary -> change back to max-w-[80%]
+                className="h-auto max-w-full object-contain"
               />
             </div>
           </a>

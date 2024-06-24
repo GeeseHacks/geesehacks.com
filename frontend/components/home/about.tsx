@@ -18,17 +18,17 @@ const aboutText = `GeeseHacks is an innovative hackathon that encapsulates the
   
 const About: React.FC = () => {
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center bg-dark-blue text-white">
+    <div className="relative flex flex-col items-center justify-center bg-dark-blue text-white">
       <div className={`${wave} top-0 left-0 z-10 `}></div>
       <div className={`${wave} top-10 left-0 z-20 opacity-40`}></div>
 
-      <div className="pt-64 pb-24 lg:pt-96 lg:pb-36">
-        <h1 className="text-4xl font-bold text-center mb-16 md:mb-10 text-shadow-section-header-glow">
+      <div className="pt-72 pb-40 pd:b-64 lg:pt-[30rem] lg:pb-72">
+        <h1 className="text-4xl md:text-6xl md:font-medium text-center mb-12 md:mb-24 text-shadow-section-header-glow">
           About Us
         </h1>
         {/* Gradient border */}
         <div className="bg-gradient-to-tr from-violet-700 via-slate-50 to-violet-700 rounded-3xl p-1 mx-5 md:mx-10">
-          <div className="bg-[#121E2F] relative p-7 sm:p-12 md:p-20 md:px-28 rounded-3xl shadow-purple-shadow text-center max-w-72 sm:max-w-lg md:max-w-xl lg:max-w-3xl">
+          <div className="bg-[#121E2F] relative p-7 sm:p-12 md:p-20 md:px-28 rounded-3xl shadow-purple-shadow text-center max-w-96 sm:max-w-lg md:max-w-xl lg:max-w-3xl">
             {/* Purple blurred circle */}
             <div className="absolute inset-0 flex justify-center items-center z-10">
               <div className="w-56 h-56 md:w-72 md:h-72 bg-purple-600 rounded-full blur-3xl opacity-30"></div>
