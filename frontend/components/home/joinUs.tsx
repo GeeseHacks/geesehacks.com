@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function JoinUs() {
   return (
     <div>
-        <div className="relative flex justify-center items-center mt-[-4rem]">
+        <div className="relative flex justify-center items-center mt-[-4rem] z-[-1]">
             <Image
                 src="/images/campfire.png"
                 alt="Stats Image"
@@ -15,7 +15,7 @@ export default function JoinUs() {
         </div>
         <div className="text-xl text-center text-white flex flex-col gap-4 p-8 mt-[-7rem]">
             <p>Our hackathon thrives thanks to the generous support of our sponsors</p>
-            <a href="https://www.instagram.com/geesehacks/" target="_blank" rel="noopener noreferrer" className="underline">Join us in making it happen!</a>
+            <a href="mailto:geesehack@gmail.com" target="_blank" rel="noopener noreferrer" className="underline">Join us in making it happen!</a>
         </div>
     </div>
   );
