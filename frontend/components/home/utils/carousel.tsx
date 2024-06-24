@@ -77,7 +77,7 @@ const Carousel: React.FC = () => {
                 style={{ whiteSpace: 'nowrap' }}
             >
                 {images.concat(images).map((image, index) => (
-                    <Image src={image} alt={`Organizer ${index + 1}`} className="w-16 h-16 rounded-full object-contain shadow-organizers-purple-shadow border-2" width={60} height={60} />
+                    <Image key={index} src={image} alt={`Organizer ${index + 1}`} className="w-16 h-16 rounded-full object-contain shadow-organizers-purple-shadow border-2" width={60} height={60} />
                 ))}
             </div>
         </div>
