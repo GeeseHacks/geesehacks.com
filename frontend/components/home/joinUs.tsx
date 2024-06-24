@@ -15,7 +15,7 @@ export default function JoinUs() {
         </div>
         <div className="text-xl text-center text-white flex flex-col gap-4 p-8 mt-[-7rem]">
             <p>Our hackathon thrives thanks to the generous support of our sponsors</p>
-            <a href="mailto:geesehack@gmail.com" target="_blank" rel="noopener noreferrer" className="underline">Join us in making it happen!</a>
+            <a href="mailto:sponsor@geesehacks.com" target="_blank" rel="noopener noreferrer" className="underline">Join us in making it happen!</a>
         </div>
     </div>
   );
