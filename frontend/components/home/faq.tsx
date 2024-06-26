@@ -43,9 +43,9 @@ const Faq: React.FC = () => {
   const secondColumnItems = faqItems.filter((_, index) => index % 2 !== 0);
 
   return (
-    <div className="h-full flex flex-col items-center px-4 my-24">
-      <h1 className="relative text-4xl font-bold text-center text-white mb-8 drop-shadow-[0_0_20px_#94A5FF]">
-        Frequently Asked Questions
+    <div className="h-full flex flex-col items-center px-4 my-24 text-white">
+      <h1 className="text-4xl md:text-6xl md:font-medium text-center mb-12 md:mb-24 text-shadow-section-header-glow">
+      Frequently Asked Questions
       </h1>
       <div className="flex flex-col md:flex-row w-full max-w-4xl gap-4">
         <div className="flex-1 flex flex-col gap-4">

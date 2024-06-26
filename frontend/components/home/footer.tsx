@@ -1,83 +1,39 @@
 import React from "react";
-import FooterTerminal from "./utils/footerTerminal";
-
-const insta = (
-  <a href="https://www.instagram.com/geesehacks/" target="_blank">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 448 512"
-      fill="white"
-      className="w-10 h-10 lg:w-20 lg:h-20"
-    >
-      <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
-    </svg>
-  </a>
-);
-
-const linkedin = (
-  <a
-    href="https://www.linkedin.com/company/geesehacks-hackathon/"
-    target="_blank"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 448 512"
-      fill="white"
-      className="w-10 h-10 lg:w-20 lg:h-20"
-    >
-      <path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
-    </svg>
-  </a>
-);
-
-const github = (
-  <a href="https://github.com/GeeseHacks" target="_blank">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 496 512"
-      fill="white"
-      className="w-10 h-10 lg:w-20 lg:h-20"
-    >
-      <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
-    </svg>
-  </a>
-);
-
-const mail = (
-  <a href="mailto: geesehack@gmail.com">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 512 512"
-      fill="white"
-      className="w-10 h-10 lg:w-20 lg:h-20"
-    >
-      <path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
-    </svg>
-  </a>
-);
+import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import Carousel from "./utils/carousel";
 
 export default function Footer() {
   return (
-    <div className="flex items-center justify-around bg-gray-800 p-6">
-      <div className="flex-col space-y-8">
-        <h1 className="text-2xl text-center lg:text-3xl lg:text-left text-white w-full lg:max-w-[400px]">
-          Made with 💙 by the GeeseHacks Team
-        </h1>
-        <div className="flex space-x-2 lg:space-x-10 justify-center">
-          {linkedin}
-          {insta}
-          {github}
-          {mail}
+    <div className="flex flex-col items-center justify-around p-4 md:p-6 px-4 md:px-16">
+      <h1 className="text-2xl sm:text-4xl font-bold text-center text-white mb-4 sm:mb-8">
+        Join us for a weekend full of geese!
+      </h1>
+
+      {/* Organizer Team Carousel Section */}
+      <div className="flex flex-col sm:flex-row items-center justify-between w-full pb-7 gap-5">
+        <div className="flex flex-col text-white gap-3 min-w-fit text-center sm:text-left">
+          <h1 className="text-base sm:text-2xl font-bold">The Organizing Team</h1>
+          <p className="text-xs sm:text-sm">Contact us at geesehack@gmail.com</p>
         </div>
-      </div>
-      <div className="relative flex items-center justify-center py-16">
-        <div className="drop-shadow-[0_20px_80px_#FF460C]">
-          <div className="flex sr-only lg:not-sr-only drop-shadow-[0_10px_40px_#690CFF]">
-            <FooterTerminal  />
-          </div>
-        </div>
+          <Carousel />
       </div>
 
+      <div className="text-white flex flex-row items-center justify-between w-full">
+        <p className="w-[350px] text-xs sm:text-base">Made with 💙 by the GeeseHacks Team</p>
+
+        <div className="flex flex-row gap-4">
+          <a href="https://www.instagram.com/geesehacks/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-300">
+            <FaInstagram size="25px" />
+          </a>
+          <a href="https://ca.linkedin.com/company/geesehacks-hackathon" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-300">
+            <FaLinkedinIn size="25px" />
+          </a>
+        </div>
+
+        <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf" target="_blank" rel="noopener noreferrer" className="w-[350px] text-right text-xs sm:text-base">
+          MLH Code of Conduct
+        </a>
+      </div>
     </div>
   );
 }

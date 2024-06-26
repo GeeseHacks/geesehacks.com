@@ -25,7 +25,7 @@ const sponsorsData: Sponsor[] = [
   },
   {
     href: "https://cscan-infocan.ca/",
-    src: "/images/cscan.webp",
+    src: "/images/cs-can.png",
     alt: "CS-Can",
   },
 ];
@@ -51,9 +51,9 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ href, src, alt, width }) => {
 
 const Sponsors: React.FC = () => {
   return (
-    <div className="p-8 sm:p-16 flex flex-col items-center justify-center relative">
-      <h1 className="text-2xl sm:text-4xl font-bold text-center text-white mb-4 sm:mb-8">
-        Our Sponsors
+    <div className="p-8 sm:p-16 flex flex-col items-center justify-center relative mt-24 text-white">
+      <h1 className="text-4xl md:text-6xl md:font-medium text-center mb-12 md:mb-24 text-shadow-section-header-glow">
+        Thank You to Our Sponsors
       </h1>
       <div
         className="absolute w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-purple-600 rounded-full blur-3xl opacity-30"
