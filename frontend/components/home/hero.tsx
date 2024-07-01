@@ -21,7 +21,7 @@ const Hero = () => {
         </h1>
         <div className="space-y-6">
           <h1 className="text-white mx-2 text-center font-semilight text-lg lg:text-xl lg:text-left text-shadow-white-glow">
-            Hacker applications open soon. Stay Tuned!
+            Hacker applications open soon. Stay tuned!
           </h1>
         </div>
 

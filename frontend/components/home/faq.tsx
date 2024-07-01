@@ -10,7 +10,7 @@ const Faq: React.FC = () => {
     },
     {
       question: "Who can participate in GeeseHacks?",
-      answer: "GeeseHacks is open to all students, regardless of their skill level or experience."
+      answer: "GeeseHacks is open to all highschool and university/college students, regardless of their skill level or experience."
     },
     {
       question: "How do I register for GeeseHacks?",
@@ -30,7 +30,7 @@ const Faq: React.FC = () => {
     },
     {
       question: "Are there any prizes for winning teams?",
-      answer: "Yes, there will be prizes for the top teams. Details will be announced during the event."
+      answer: "There will be prizes for the top teams. Details will be announced during the event."
     },
     {
       question: "Can I work on my project before the hackathon?",
