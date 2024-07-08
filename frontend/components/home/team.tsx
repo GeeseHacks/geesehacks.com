@@ -1,7 +1,8 @@
-"use client"
+"use client";
 
 import React, { useState, useEffect } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import Image from 'next/image';
 
 interface NavigationItem {
     label: string;
@@ -81,12 +82,17 @@ const Carousel = () => {
                     <div key={groupIndex} className="mb-8">
                         <h2 className="text-3xl font-semibold mb-4 text-white flex justify-center">{team.teamName}</h2>
                         <div className="flex flex-wrap justify-center">
-                            {team.members.map((item, index) => (
+                            {team.members.map((item) => (
                                 <div key={item.name} className="p-2 rounded-md text-center w-48 sm:w-auto mb-4 sm:mb-0">
-                                    <img
+                                    <Image
                                         src={item.image}
                                         alt={item.name}
                                         className="drop-shadow-[0_0_10px_#9E63EA] w-28 h-28 rounded-full mx-auto mb-2 object-cover border-4"
+                                        width={112}
+                                        height={112}
+                                        loading="lazy"
+                                        placeholder="blur"
+                                        blurDataURL="/images/placeholder.png" // Add a placeholder image
                                     />
                                     <h3 className="mt-2 sm:mt-4 text-lg sm:text-xl font-medium text-white">{item.name}</h3>
                                     <p className="text-gray-300">{item.role}</p>
@@ -114,12 +120,17 @@ const Carousel = () => {
                     >
                         <h2 className="text-3xl font-semibold mb-4 text-white">{team.teamName}</h2>
                         <div className="flex flex-wrap justify-center">
-                            {team.members.map((item, index) => (
+                            {team.members.map((item) => (
                                 <div key={item.name} className="p-2 rounded-md text-center w-48 sm:w-auto mb-4 sm:mb-0">
-                                    <img
+                                    <Image
                                         src={item.image}
                                         alt={item.name}
                                         className="drop-shadow-[0_0_10px_#9E63EA] w-28 sm:w-40 h-28 sm:h-40 rounded-full mx-auto mb-2 object-cover border-4"
+                                        width={160}
+                                        height={160}
+                                        loading="lazy"
+                                        placeholder="blur"
+                                        blurDataURL="/images/placeholder.png" // Add a placeholder image
                                     />
                                     <h3 className="mt-2 sm:mt-4 text-lg sm:text-xl font-medium text-white">{item.name}</h3>
                                     <p className="text-gray-300">{item.role}</p>
@@ -135,6 +146,7 @@ const Carousel = () => {
                         key={navItem.label}
                         onClick={() => handleNavigation(navItem.onClick)}
                         className="p-2 rounded-full scale-100 hover:scale-125"
+                        aria-label={navItem.label}
                     >
                         {navItem.icon}
                     </button>
@@ -142,8 +154,6 @@ const Carousel = () => {
             </div>
         </div>
     );
-    
-    
 };
 
 export default Carousel;
