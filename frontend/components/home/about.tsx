@@ -1,9 +1,9 @@
 import Image from "next/image";
 
 /* ---- Tailwind pre-defined styles ---- */
-const smallQuotation = "text-8xl font-bold absolute";
-const largeQoutation = "text-[250px] md:text-[320px] font-bold absolute opacity-15";
-const wave = "bg-wave-image bg-cover w-full h-52 lg:h-72 absolute";
+const smallQuotation = 'text-8xl font-bold absolute';
+const largeQuotation = 'text-[250px] md:text-[320px] font-bold absolute opacity-15';
+const wave = 'bg-wave-image bg-cover w-full h-52 lg:h-72 absolute';
 
 /* ---- Placeholder display text to introduce GeeseHacks ---- */
 const aboutText = `GeeseHacks is an innovative hackathon that encapsulates the
@@ -14,12 +14,11 @@ const aboutText = `GeeseHacks is an innovative hackathon that encapsulates the
   of technology and develop solutions that address real-world
   problems.`;
 
-
-  
 const About: React.FC = () => {
   return (
     <div className="relative flex flex-col items-center justify-center bg-dark-blue text-white">
-      <div className={`${wave} top-0 left-0 z-10 `}></div>
+
+      <div className={`${wave} top-0 left-0 z-10`}></div>
       <div className={`${wave} top-10 left-0 z-20 opacity-40`}></div>
 
       <div className="pt-72 pb-40 pd:b-64 lg:pt-[30rem] lg:pb-72">
@@ -33,7 +32,7 @@ const About: React.FC = () => {
             <div className="absolute inset-0 flex justify-center items-center z-10">
               <div className="w-56 h-56 md:w-72 md:h-72 bg-purple-600 rounded-full blur-3xl opacity-30"></div>
             </div>
-            <span className={`${largeQoutation} -top-32 -left-12 md:-left-16 md:-top-44 z-20`}>
+            <span className={`${largeQuotation} -top-32 -left-12 md:-left-16 md:-top-44 z-20`}>
               “
             </span>
             <span className={`${smallQuotation} hidden md:inline left-12 top-10 z-20`}>
@@ -48,7 +47,7 @@ const About: React.FC = () => {
             <span className={`${smallQuotation} hidden md:inline right-12 -bottom-2 z-20`}>
               ”
             </span>
-            <span className={`${largeQoutation} -right-12 -bottom-64 md:-right-16 md:-bottom-80 lg:top-64 z-20`}>
+            <span className={`${largeQuotation} -right-12 -bottom-64 md:-right-16 md:-bottom-80 lg:top-64 z-20`}>
               ”
             </span>
             <Image
@@ -57,13 +56,17 @@ const About: React.FC = () => {
               alt="Star Image"
               width={23}
               height={23}
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
             <Image
               className="absolute right-7 -bottom-16 md:right-10 md:-bottom-20 z-20"
-              src="/images/star.png"
+              src="/images/star.png"  
               alt="Star Image"
               width={13}
               height={13}
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
         </div>

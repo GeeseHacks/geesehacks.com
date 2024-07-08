@@ -1,9 +1,9 @@
-import React from "react";
-import AnimatedTerminal from "./utils/terminal";
+import React, { Suspense, lazy } from "react";
 import HeroButton from "./utils/heroButton";
-
 import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
+// Lazy load AnimatedTerminal
+const AnimatedTerminal = lazy(() => import("./utils/terminal"));
 
 // SET TO TRUE WHEN APPLICATION OPENS
 const applicationOpen = false;
@@ -38,12 +38,16 @@ const Hero = () => {
           </a>
         </div>
 
-        {applicationOpen && <div className="flex space-x-4 justify-center md:justify-start">
-          <HeroButton href="/apply">Apply Now</HeroButton>
-        </div>}
+        {applicationOpen && (
+          <div className="flex space-x-4 justify-center md:justify-start">
+            <HeroButton href="/apply">Apply Now</HeroButton>
+          </div>
+        )}
       </div>
       <div className="flex mt-8 sr-only md:not-sr-only">
-        <AnimatedTerminal />
+        <Suspense fallback={<div>Loading...</div>}>
+          <AnimatedTerminal />
+        </Suspense>
       </div>
     </div>
   );

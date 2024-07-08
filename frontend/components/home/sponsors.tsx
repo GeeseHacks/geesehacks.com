@@ -42,7 +42,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ href, src, alt, width }) => {
     <a href={href} target="_blank" rel="noopener noreferrer" className="flex">
       <div className="flex justify-center items-center bg-purple-300 bg-opacity-15 border-2 border-purple-300 rounded-md p-12 min-h-[10rem] hover:scale-105 ease-in-out duration-300 w-full">
         <div>
-          <Image src={src} alt={alt} layout="responsive" width={0} height={50} />
+          <Image src={src} alt={alt} layout="responsive" width={0} height={50} loading="lazy" />
         </div>
       </div>
     </a>

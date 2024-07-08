@@ -40,7 +40,7 @@ const FaqItem: React.FC<FaqItemProps> = ({ question, answer }) => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.1 }}
+            transition={{ duration: 0.1, ease: "easeInOut"}} 
             className="overflow-hidden px-6 pt-2 pb-4 text-white"
           >
             {answer}
