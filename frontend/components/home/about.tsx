@@ -17,6 +17,7 @@ const aboutText = `GeeseHacks is an innovative hackathon that encapsulates the
 const About: React.FC = () => {
   return (
     <div className="relative flex flex-col items-center justify-center bg-dark-blue text-white">
+
       <div className={`${wave} top-0 left-0 z-10`}></div>
       <div className={`${wave} top-10 left-0 z-20 opacity-40`}></div>
 

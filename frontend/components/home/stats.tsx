@@ -4,21 +4,11 @@ import Image from "next/image";
 export default function Stats() {
   return (
     <div className="text-white">
-      <h1 className="text-4xl font-bold text-center mb-16 md:mb-10 pb-36">
-        Sponsors & Partners
+      <h1 className="text-4xl md:text-6xl md:font-medium text-center mb-12 md:mb-24 text-shadow-section-header-glow">
+        By the Numbers
       </h1>
-      <div className="relative flex justify-center items-center">
-        <div className="absolute -bottom-16 w-48 h-48 md:w-50 md:h-50 bg-red-600 rounded-full blur-2xl opacity-40"></div>
-        <div className="absolute">
-          <Image
-            src="/images/statsMainImage.png"
-            alt="Stats Image"
-            width={500}
-            height={500}
-          />
-        </div>
-      </div>
-      <div className="flex flex-wrap justify-center items-center mt-56 gap-4">
+
+      <div className="flex flex-wrap justify-center items-center gap-4">
         {['$5000', '600+', '100+', '15'].map((stat, index) => (
           <div key={index} className="w-1/5 relative">
             <div className="absolute inset-0 transform translate-y-2 z-0 rounded-2xl shadow-stat-inner-shadow bg-stat-card-bg"></div>
