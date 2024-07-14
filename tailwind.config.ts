@@ -9,11 +9,6 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'hero-image': "url('/images/heroBackground.png')",
-        'wave-image': "url('/images/wave.png')",
-        
-      },
       boxShadow: {
         'organizers-purple-shadow': '0 0 5px 5px rgba(158, 99, 234, 0.4)', // For the organizer images in the carousel
         'purple-shadow': '0 0 20px 10px rgba(158, 99, 234, 0.6)', // For About Us box

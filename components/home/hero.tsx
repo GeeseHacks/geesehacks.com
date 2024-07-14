@@ -1,6 +1,8 @@
 import React, { Suspense, lazy } from "react";
 import HeroButton from "./utils/heroButton";
 import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import backgroundImage from "@/public/images/heroBackground.png";
+
 
 // Lazy load AnimatedTerminal
 const AnimatedTerminal = lazy(() => import("./utils/terminal"));
@@ -10,7 +12,7 @@ const applicationOpen = false;
 
 const Hero = () => {
   return (
-    <div className="bg-hero-image bg-cover w-full h-screen flex items-center justify-center md:justify-evenly bg-bottom">
+    <div className="bg-cover w-full h-screen flex items-center justify-center md:justify-evenly bg-bottom" style={{backgroundImage: `url(${backgroundImage.src})`}}>
       <div className="flex-col space-y-8 mb-3 mx-3">
         <h1 className="text-white text-2xl text-center mx-2 md:text-left lg:text-3xl text-shadow-white-glow">
           January 10-12 · Waterloo, ON

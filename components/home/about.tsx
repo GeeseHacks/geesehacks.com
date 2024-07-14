@@ -1,9 +1,9 @@
 import Image from "next/image";
+import wave from "@/public/images/wave.png";
 
 /* ---- Tailwind pre-defined styles ---- */
 const smallQuotation = 'text-8xl font-bold absolute';
 const largeQuotation = 'text-[250px] md:text-[320px] font-bold absolute opacity-15';
-const wave = 'bg-wave-image bg-cover w-full h-52 lg:h-72 absolute';
 
 /* ---- Placeholder display text to introduce GeeseHacks ---- */
 const aboutText = `GeeseHacks is an innovative hackathon that encapsulates the
@@ -17,9 +17,8 @@ const aboutText = `GeeseHacks is an innovative hackathon that encapsulates the
 const About: React.FC = () => {
   return (
     <div className="relative flex flex-col items-center justify-center bg-dark-blue text-white">
-
-      <div className={`${wave} top-0 left-0 z-10`}></div>
-      <div className={`${wave} top-10 left-0 z-20 opacity-40`}></div>
+      <Image className="top-0 left-0 z-10 absolute -m-1" src={wave} alt="wave" />
+      <Image className="top-10 left-0 z-10 opacity-10 absolute" src={wave} alt="wave" />
 
       <div className="pt-72 pb-40 pd:b-64 lg:pt-[30rem] lg:pb-72">
         <h1 className="text-4xl md:text-6xl md:font-medium text-center mb-12 md:mb-24 text-shadow-section-header-glow">
