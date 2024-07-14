@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Head from "next/head";
 
 // SET TO TRUE WHEN APPLICATION OPENS
 const applicationOpen = false;
@@ -30,7 +31,6 @@ const Navbar: React.FC = () => {
   let lastScrollY = 0;
 
   useEffect(() => {
-
     // Logic to handle scroll animation
     const handleVisibility = () => {
       if (window.scrollY < lastScrollY || window.scrollY < 50) {
@@ -87,61 +87,73 @@ const Navbar: React.FC = () => {
       href={link.url}
       className={linkStyle}
       key={link.url}
-      onClick={(e)=>{smoothScroll(e); setIsOpen(false);}}
+      onClick={(e) => { smoothScroll(e); setIsOpen(false); }}
+      aria-label={link.text} // Add ARIA label
     >
       {link.text}
     </a>
   ));
 
   return (
-    <nav
-      ref={navbarRef}
-      className={`w-screen fixed top-0 left-0 text-white z-50 lg:pt-4 pt-0 px-4 sm:px-6 lg:px-8 2xl:px-0 transition-all h-20 duration-300 ${scrolled ? `bg-[rgba(0,0,0,0.1)] fixed w-full ${isVisible ? 'top-0' : '-top-20'} transition-top duration-300 ease-in-out z-50` : "bg-transparent"
-        } `}
-    >
-      <div className="mx-auto w-full 2xl:w-4/5">
-        <div className="flex justify-between h-12">
-          <div className="hidden lg:flex">
-            <div className="flex-shrink-0 flex items-center">
-              <Image
-                src="/images/geesehacksLogo.png"
-                alt="Logo"
-                width={45}
-                height={45}
-              />
+    <>
+      <Head>
+        <title>GeeseHacks Navbar</title>
+        <meta name="description" content="GeeseHacks Navbar - Navigate through Home, About, Sponsors, and FAQ sections." />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
+      <nav
+        ref={navbarRef}
+        className={`w-screen fixed top-0 left-0 text-white z-50 lg:pt-4 pt-0 px-4 sm:px-6 lg:px-8 2xl:px-0 transition-all h-20 duration-300 ${scrolled ? `bg-[rgba(0,0,0,0.1)] fixed w-full ${isVisible ? 'top-0' : '-top-20'} transition-top duration-300 ease-in-out z-50` : "bg-transparent"
+          } `}
+        aria-label="Main navigation"  // Add ARIA label for the navigation
+      >
+        <div className="mx-auto w-full 2xl:w-4/5">
+          <div className="flex justify-between h-12">
+            <div className="hidden lg:flex">
+              <div className="flex-shrink-0 flex items-center">
+                <Link href="/" aria-label="GeeseHacks Home">
+                  <Image
+                    src="/images/geesehacksLogo.png"
+                    alt="GeeseHacks Logo"
+                    width={45}
+                    height={45}
+                  />
+                </Link>
+              </div>
+            </div>
+            <div className="flex space-x-4 items-center lg:hidden">
+              <button
+                onClick={toggleNavbar}
+                className="text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                aria-expanded={isOpen} // Add ARIA expanded state for the button
+                aria-controls="navbar-menu" // ARIA controls to associate with the collapsible menu
+              >
+                <span className="sr-only">Toggle navigation</span>
+                {hamburger}
+              </button>
+            </div>
+            <div className="hidden lg:flex lg:space-x-4 items-center">
+              {navLinks}
+              {applicationOpen && <Link
+                href="/apply"
+                className="px-6 py-2 bg-transparent border-2 border-white rounded-full text-white text-sm md:text-base lg:text-md xl:text-lg font-medium hover:bg-white hover:text-gray-900 transition-all duration-300 ease-in-out"
+                aria-label="Apply Now"
+              >
+                Apply Now
+              </Link>}
             </div>
           </div>
-          <div className="flex space-x-4 items-center lg:hidden">
-            <button
-              onClick={toggleNavbar}
-              className="text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-            >
-              <span className="sr-only">Toggle navigation</span>
-              {hamburger}
-            </button>
-          </div>
-          {/* the right padding (pr) is used to make space for the MLH Badge. Can remove if MLH badge not used */}
-          {/* <div className="hidden lg:flex lg:space-x-4 items-center pr-36 2xl:pr-0"> */}
-          <div className="hidden lg:flex lg:space-x-4 items-center">
-            {navLinks}
-            {applicationOpen && <Link
-              href="/apply"
-              className="px-6 py-2 bg-transparent border-2 border-white rounded-full text-white text-sm md:text-base lg:text-md xl:text-lg font-medium hover:bg-white hover:text-gray-900 transition-all duration-300 ease-in-out"
-            >
-              Apply Now
-            </Link>}
-          </div>
+          {isOpen && (
+            <div id="navbar-menu" className="lg:hidden bg-gray-800 px-2 pt-2 pb-3 space-y-1 flex flex-col">
+              {navLinks}
+              {applicationOpen && <Link href="/apply" className={linkStyle} aria-label="Apply Now">
+                Apply Now
+              </Link>}
+            </div>
+          )}
         </div>
-        {isOpen && (
-          <div className="lg:hidden bg-gray-800 px-2 pt-2 pb-3 space-y-1 flex flex-col">
-            {navLinks}
-            {applicationOpen && <Link href="/apply" className={linkStyle}>
-              Apply Now
-            </Link>}
-          </div>
-        )}
-      </div>
-    </nav>
+      </nav>
+    </>
   );
 };
 
