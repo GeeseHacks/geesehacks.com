@@ -1,5 +1,6 @@
+import React from "react";
+import Head from "next/head";
 import FaqItem from "./utils/faqItem";
-
 
 // Define the main Faq component
 const Faq: React.FC = () => {
@@ -43,23 +44,30 @@ const Faq: React.FC = () => {
   const secondColumnItems = faqItems.filter((_, index) => index % 2 !== 0);
 
   return (
-    <div className="h-full flex flex-col items-center px-4 my-24 text-white">
-      <h1 className="text-4xl md:text-6xl md:font-medium text-center mb-12 md:mb-24 text-shadow-section-header-glow">
-      Frequently Asked Questions
-      </h1>
-      <div className="flex flex-col md:flex-row w-full max-w-4xl gap-4">
-        <div className="flex-1 flex flex-col gap-4">
-          {firstColumnItems.map((item, index) => (
-            <FaqItem key={index} question={item.question} answer={item.answer} />
-          ))}
-        </div>
-        <div className="flex-1 flex flex-col gap-4">
-          {secondColumnItems.map((item, index) => (
-            <FaqItem key={index} question={item.question} answer={item.answer} />
-          ))}
+    <>
+      <Head>
+        <title>FAQ | GeeseHacks</title>
+        <meta name="description" content="Find answers to the most frequently asked questions about GeeseHacks. Learn about the hackathon, how to participate, and more." />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
+      <div className="h-full flex flex-col items-center px-4 my-24 text-white">
+        <h1 className="text-4xl md:text-6xl md:font-medium text-center mb-12 md:mb-24 text-shadow-section-header-glow" aria-label="Frequently Asked Questions">
+          Frequently Asked Questions
+        </h1>
+        <div className="flex flex-col md:flex-row w-full max-w-4xl gap-4">
+          <div className="flex-1 flex flex-col gap-4">
+            {firstColumnItems.map((item, index) => (
+              <FaqItem key={index} question={item.question} answer={item.answer} />
+            ))}
+          </div>
+          <div className="flex-1 flex flex-col gap-4">
+            {secondColumnItems.map((item, index) => (
+              <FaqItem key={index} question={item.question} answer={item.answer} />
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
+import Head from "next/head";
 
 export default function Stats() {
   const controls = useAnimation();
@@ -26,7 +27,7 @@ export default function Stats() {
         observer.unobserve(ref.current);
       }
     };
-  }, [ref]);
+  }, []);
 
   useEffect(() => {
     if (inView) {
@@ -50,44 +51,50 @@ export default function Stats() {
   };
 
   return (
-    <div ref={ref} className="text-white">
-      <motion.h1
-        initial="hidden"
-        animate={controls}
-        variants={containerVariants}
-        className="text-4xl md:text-6xl md:font-medium text-center mb-12 md:mb-24 text-shadow-section-header-glow"
-      >
-        By the Numbers
-      </motion.h1>
+    <>
+      <Head>
+        <title>Stats | GeeseHacks</title>
+        <meta name="description" content="Check out the impressive stats for GeeseHacks including prizes, participants, and more." />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
+      <div ref={ref} className="text-white" aria-labelledby="stats-header">
+        <motion.div
+          className="flex flex-wrap justify-center items-center gap-4"
+          initial="hidden"
+          animate={controls}
+          variants={containerVariants}
+          aria-live="polite"
+        >
+          {["$5000", "600+", "100+", "15"].map((stat, index) => (
+            <motion.div
+              key={index}
+              className="w-3/4 md:w-1/5 relative"
+              variants={itemVariants}
+              aria-labelledby={`stat-${index}`}
+            >
+              <div className="absolute inset-0 transform translate-y-2 z-0 rounded-2xl shadow-stat-inner-shadow bg-stat-card-bg"></div>
+              <div className="relative flex flex-col items-center justify-center rounded-2xl p-9 shadow-stat-card-shadow z-10 bg-stat-card-bg h-32 md:h-44">
+                <h2
+                  id={`stat-${index}`}
+                  className="text-center sm:text-2xl md:text-3xl lg:text-5xl xl:text-5xl font-bold md:pb-5"
 
-      <motion.div
-        className="flex flex-wrap justify-center items-center gap-4"
-        initial="hidden"
-        animate={controls}
-        variants={containerVariants}
-      >
-        {["$5000", "600+", "100+", "15"].map((stat, index) => (
-          <motion.div
-            key={index}
-            className="w-3/4 md:w-1/5 relative"
-            variants={itemVariants}
-          >
-            <div className="absolute inset-0 transform translate-y-2 z-0 rounded-2xl shadow-stat-inner-shadow bg-stat-card-bg"></div>
-            <div className="relative flex flex-col items-center justify-center rounded-2xl p-9 shadow-stat-card-shadow z-10 bg-stat-card-bg h-32 md:h-44">
-              <h1 className="inline-block text-center sm:text-2xl md:text-3xl lg:text-5xl xl:text-5xl font-bold md:pb-5">
-                {stat}
-              </h1>
-              <div className="text-center text-sm sm:text-base md:text-base lg:text-m xl:text-l font-normal">
-                {
-                  ["in Prizes", "Hackers", "Projects Submitted", "Mentors"][
-                    index
-                  ]
-                }
+                  role="heading"
+                >
+                  {stat}
+                </h2>
+                <div className="text-center text-sm sm:text-base md:text-base lg:text-m xl:text-l font-normal">
+                  {[
+                    "in Prizes",
+                    "Hackers",
+                    "Projects Submitted",
+                    "Mentors",
+                  ][index]}
+                </div>
               </div>
-            </div>
-          </motion.div>
-        ))}
-      </motion.div>
-    </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </>
   );
 }
