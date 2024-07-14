@@ -8,11 +8,25 @@ import Faq from '../components/home/faq';
 import Team from '../components/home/team';
 import Sponsors from '../components/home/sponsors';
 import Footer from '../components/home/footer';
+import Head from "next/head";
 import "./globals.css";
+
+// SEO text for reference
+const aboutText = `GeeseHacks is an innovative hackathon that encapsulates the
+  spirit of Waterloo's rigorous tech environment. Organized by
+  students and for students, it's an arena where coding,
+  creativity, and technology collide to transform ideas into
+  reality. This event challenges participants to push the boundaries
+  of technology and develop solutions that address real-world
+  problems.`;
 
 export default function Home() {
   return (
-    <div>
+    <>
+      <Head>
+        <title>GeeseHacks</title>
+        <meta name="description" content="Join us at GeeseHacks, January 10-12 in Waterloo, ON. Hacker applications open soon. Stay tuned!" />
+      </Head>
       <Navbar />
       <div id="hero"> <Hero /> </div>
       <div id="about"> <About /> </div>
@@ -23,7 +37,7 @@ export default function Home() {
       {/* <div id="team"> <Team /> </div> */}
       <div id="faq"> <Faq /> </div>
       <Footer />
-    </div>
+    </>
   );
 }
 
