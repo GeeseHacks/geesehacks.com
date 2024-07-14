@@ -1,6 +1,10 @@
+"use client";
+
 import React, { Suspense, lazy } from "react";
 import HeroButton from "./utils/heroButton";
 import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { motion } from "framer-motion";
+import backgroundImage from "@/public/images/heroBackground.png";
 
 // Lazy load AnimatedTerminal
 const AnimatedTerminal = lazy(() => import("./utils/terminal"));
@@ -8,22 +12,44 @@ const AnimatedTerminal = lazy(() => import("./utils/terminal"));
 // SET TO TRUE WHEN APPLICATION OPENS
 const applicationOpen = false;
 
-const Hero = () => {
-  return (
-    <div className="bg-hero-image bg-cover w-full h-screen flex items-center justify-center md:justify-evenly bg-bottom">
-      <div className="flex-col space-y-8 mb-3 mx-3">
-        <h1 className="text-white text-2xl text-center mx-2 md:text-left lg:text-3xl text-shadow-white-glow">
-          January 10-12 · Waterloo, ON
-        </h1>
+const containerVariants = {
+  hidden: { opacity: 0, y: -30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 2,
+      ease: "easeInOut",
+      staggerChildren: 0.7,
+    },
+  },
+};
 
-        <h1 className="text-white text-center text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-shadow-white-glow">
-          GeeseHacks
-        </h1>
-        <div className="space-y-6">
-          <h1 className="text-white mx-2 text-center font-semilight text-lg lg:text-xl lg:text-left text-shadow-white-glow">
-            Hacker applications open soon. Stay tuned!
-          </h1>
-        </div>
+const itemVariants = {
+  hidden: { opacity: 0, y: -30 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const Hero = () => {
+
+  return (
+    <div className="bg-cover w-full h-screen flex items-center justify-center md:justify-evenly bg-bottom" style={{ backgroundImage: `url(${backgroundImage.src})` }}>
+      <div className="flex-col space-y-8 mb-3 mx-3">
+        <motion.div initial="hidden" animate="visible" variants={containerVariants}>
+          <motion.h1 variants={itemVariants} className="text-white text-2xl text-center mx-2 md:text-left lg:text-3xl text-shadow-white-glow">
+            January 10-12 · Waterloo, ON
+          </motion.h1>
+
+          <motion.h1 variants={itemVariants} className="text-white text-center text-5xl my-6 sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-shadow-white-glow">
+            GeeseHacks
+          </motion.h1>
+
+          <motion.div variants={itemVariants} className="space-y-6">
+            <h1 className="text-white mx-2 text-center font-semilight text-lg lg:text-xl lg:text-left text-shadow-white-glow">
+              Hacker applications open soon. Stay tuned!
+            </h1>
+          </motion.div>
+        </motion.div>
 
         <div className="flex flex-row justify-center md:justify-normal gap-6 px-2">
           <a href="https://www.instagram.com/geesehacks/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-300">

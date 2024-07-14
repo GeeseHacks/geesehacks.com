@@ -1,11 +1,13 @@
+"use client";
+
+import React, { useEffect, useRef, useState } from "react";
+import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
+import wave from "@/public/images/wave.png";
 
-/* ---- Tailwind pre-defined styles ---- */
 const smallQuotation = 'text-8xl font-bold absolute';
-const largeQuotation = 'text-[250px] md:text-[320px] font-bold absolute opacity-15';
-const wave = 'bg-wave-image bg-cover w-full h-52 lg:h-72 absolute';
+const largeQuotation = 'hidden md:block text-[250px] md:text-[320px] font-bold absolute opacity-15';
 
-/* ---- Placeholder display text to introduce GeeseHacks ---- */
 const aboutText = `GeeseHacks is an innovative hackathon that encapsulates the
   spirit of Waterloo's rigorous tech environment. Organized by
   students and for students, it's an arena where coding,
@@ -15,20 +17,64 @@ const aboutText = `GeeseHacks is an innovative hackathon that encapsulates the
   problems.`;
 
 const About: React.FC = () => {
+  const controls = useAnimation();
+  const [inView, setInView] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+      },
+      { threshold: 0.3 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, [ref]);
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [inView, controls]);
+
+  const containerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeInOut",
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
   return (
-    <div className="relative flex flex-col items-center justify-center bg-dark-blue text-white">
+    <div ref={ref} className="relative flex flex-col items-center justify-center bg-dark-blue text-white">
+      <Image className="top-0 left-0 z-10 absolute -my-1" src={wave} alt="wave" />
+      <Image className="top-2 left-0 z-10 opacity-10 absolute md:top-8" src={wave} alt="wave" />
 
-      <div className={`${wave} top-0 left-0 z-10`}></div>
-      <div className={`${wave} top-10 left-0 z-20 opacity-40`}></div>
-
-      <div className="pt-72 pb-40 pd:b-64 lg:pt-[30rem] lg:pb-72">
-        <h1 className="text-4xl md:text-6xl md:font-medium text-center mb-12 md:mb-24 text-shadow-section-header-glow">
+      <motion.div
+        initial="hidden"
+        animate={controls}
+        variants={containerVariants}
+        className="pt-72 pb-40 pd:b-64 lg:pt-[30rem] lg:pb-72"
+      >
+        <motion.h1 variants={containerVariants} className="text-4xl md:text-6xl md:font-medium text-center mb-12 md:mb-24 text-shadow-section-header-glow">
           About Us
-        </h1>
-        {/* Gradient border */}
-        <div className="bg-gradient-to-tr from-violet-700 via-slate-50 to-violet-700 rounded-3xl p-1 mx-5 md:mx-10">
+        </motion.h1>
+        <motion.div variants={containerVariants} className="bg-gradient-to-tr from-violet-700 via-slate-50 to-violet-700 rounded-3xl p-1 mx-5 md:mx-10">
           <div className="bg-[#121E2F] relative p-7 sm:p-12 md:p-20 md:px-28 rounded-3xl shadow-purple-shadow text-center max-w-96 sm:max-w-lg md:max-w-xl lg:max-w-3xl">
-            {/* Purple blurred circle */}
             <div className="absolute inset-0 flex justify-center items-center z-10">
               <div className="w-56 h-56 md:w-72 md:h-72 bg-purple-600 rounded-full blur-3xl opacity-30"></div>
             </div>
@@ -61,7 +107,7 @@ const About: React.FC = () => {
             />
             <Image
               className="absolute right-7 -bottom-16 md:right-10 md:-bottom-20 z-20"
-              src="/images/star.png"  
+              src="/images/star.png"
               alt="Star Image"
               width={13}
               height={13}
@@ -69,8 +115,8 @@ const About: React.FC = () => {
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };
