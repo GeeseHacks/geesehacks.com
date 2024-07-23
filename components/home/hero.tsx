@@ -47,6 +47,7 @@ const Hero = () => {
             fill
             priority
             placeholder="blur"
+            quality={80}
           />
         </div>
         <div className="flex-col space-y-8 mb-3 mx-3 relative z-10">
