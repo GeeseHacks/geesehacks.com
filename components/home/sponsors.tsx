@@ -28,7 +28,7 @@ const sponsorsData: Sponsor[] = [
   },
   {
     href: "https://cscan-infocan.ca/",
-    src: "/images/cs-can.png",
+    src: "/images/cs-can.webp",
     alt: "CS-Can",
   },
 ];
@@ -50,13 +50,12 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ href, src, alt, width }) => {
       className="flex"
     >
       <div className="flex justify-center items-center bg-purple-300 bg-opacity-15 border-2 border-purple-300 rounded-md p-12 min-h-[10rem] hover:scale-105 ease-in-out duration-300 w-full">
-        <div>
+      <div className="relative w-full h-24"> 
           <Image
             src={src}
             alt={alt}
-            layout="responsive"
-            width={0}
-            height={50}
+            fill
+            style={{ objectFit: 'contain' }}
             loading="lazy"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />

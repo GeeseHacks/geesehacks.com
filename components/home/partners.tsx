@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import Image from 'next/image';
 
 // To whoever who encounter this file: please consider making the code dynamic (use the same card from sponsors)
 export default function Partners() {
@@ -27,10 +28,15 @@ export default function Partners() {
               className="flex"
             >
               <div className="flex justify-center items-center bg-purple-300 bg-opacity-15 border-2 border-purple-300 rounded-md p-4 min-h-[6rem] hover:scale-105 ease-in-out duration-300">
-                <img
-                  src="/images/gdsc-uw.png"
+                <Image
+                  src="/images/gdsc-uw.webp"
                   alt="Google Developer Student Club logo"
-                  className="h-auto max-w-full object-contain"
+                  width={500}
+                  height={200}
+                  placeholder="blur"
+                  loading="lazy"
+                  blurDataURL="/images/gdsc-uw.webp"
+                  className="h-auto p-7 max-w-full object-contain"
                 />
               </div>
             </a>
@@ -42,9 +48,14 @@ export default function Partners() {
               className="flex"
             >
               <div className="flex justify-center items-center bg-purple-300 bg-opacity-15 border-2 border-purple-300 rounded-md p-4 min-h-[6rem] hover:scale-105 ease-in-out duration-300">
-                <img
-                  src="/images/cs-can.png"
+                <Image
+                  src="/images/cs-can.webp"
                   alt="CS-Can logo"
+                  width={500}
+                  height={200}
+                  placeholder="blur"
+                  loading="lazy"
+                  blurDataURL="/images/cs-can.webp"
                   className="h-auto max-w-[80%] object-contain"
                 />
               </div>
