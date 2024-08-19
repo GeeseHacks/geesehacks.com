@@ -27,7 +27,7 @@ export default function Partners() {
               aria-label="Google Developer Student Club"
               className="flex"
             >
-              <div className="flex justify-center items-center bg-purple-300 bg-opacity-15 border-2 border-purple-300 rounded-md p-4 min-h-[6rem] hover:scale-105 ease-in-out duration-300">
+              <div className="w-full flex justify-center items-center bg-purple-300 bg-opacity-15 border-2 border-purple-300 rounded-md p-4 min-h-[6rem] hover:scale-105 ease-in-out duration-300">
                 <Image
                   src="/images/gdsc-uw.webp"
                   alt="Google Developer Student Club logo"
@@ -47,7 +47,7 @@ export default function Partners() {
               aria-label="CS-Can"
               className="flex"
             >
-              <div className="flex justify-center items-center bg-purple-300 bg-opacity-15 border-2 border-purple-300 rounded-md p-4 min-h-[6rem] hover:scale-105 ease-in-out duration-300">
+              <div className="w-full flex justify-center items-center bg-purple-300 bg-opacity-15 border-2 border-purple-300 rounded-md p-4 min-h-[6rem] hover:scale-105 ease-in-out duration-300">
                 <Image
                   src="/images/cs-can.webp"
                   alt="CS-Can logo"
@@ -56,7 +56,7 @@ export default function Partners() {
                   placeholder="blur"
                   loading="lazy"
                   blurDataURL="/images/cs-can.webp"
-                  className="h-auto max-w-[80%] object-contain"
+                  className="h-auto max-w-[70%] object-contain"
                 />
               </div>
             </a>
