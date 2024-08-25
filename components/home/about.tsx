@@ -70,6 +70,34 @@ const About: React.FC = () => {
         <Image className="top-0 left-0 z-10 absolute -my-1" src={wave} alt="wave" />
         <Image className="top-2 left-0 z-10 opacity-10 absolute md:top-8" src={wave} alt="wave" />
 
+        {/* Glow Effect */}
+        <div className="fixed inset-0 -z-50">
+          <div className="absolute top-60 left-60 m-20 w-1/2 h-1/2 bg-gradient-to-r from-purple-700 via-purple-800 to-purple-900 rounded-full blur-4xl opacity-30"></div>
+          <div className="absolute bottom-60 right-60 m-20 w-1/2 h-1/2 bg-gradient-to-r from-teal-700 via-teal-800 to-teal-900 rounded-full blur-4xl opacity-25"></div>
+        </div>
+
+        {/* Background Stars */}
+        <div className="fixed inset-0 -z-50">
+          {[...Array(250)].map((_, i) => {
+            const size = `${Math.random()*2 + 2}px`;
+            return (
+              <motion.div
+                key={i}
+                className="absolute bg-white rounded-full opacity-35"
+                style={{
+                  width: size,
+                  height: size,
+                  top: `${Math.random() * 100}%`,
+                  left: `${Math.random() * 100}%`,
+                  boxShadow: `0 0 10px 2px rgba(255, 255, 255, 0.1)`,
+                }}
+                animate={{ y: [0, -10 - Math.random() * 200, 0] }}
+                transition={{ repeat: Infinity, duration: Math.random() * 8 + 8, delay: Math.random() * 0.5 }}
+              ></motion.div>
+            );
+          })}
+        </div>
+
         <motion.div
           initial="hidden"
           animate={controls}

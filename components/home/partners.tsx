@@ -27,11 +27,11 @@ export default function Partners() {
               aria-label="Google Developer Student Club"
               className="flex"
             >
-              <div className="w-full flex justify-center items-center bg-purple-300 bg-opacity-15 border-2 border-purple-300 rounded-md p-4 min-h-[6rem] hover:scale-105 ease-in-out duration-300">
+              <div className="w-full flex justify-center items-center bg-gradient-to-br from-purple-600/30 to-indigo-300/30 border-0 border-purple-300 rounded-2xl p-4 min-h-[6rem] hover:scale-102 ease-in-out duration-300">
                 <Image
                   src="/images/gdsc-uw.webp"
                   alt="Google Developer Student Club logo"
-                  width={500}
+                  width={600}
                   height={200}
                   placeholder="blur"
                   loading="lazy"
@@ -47,7 +47,7 @@ export default function Partners() {
               aria-label="CS-Can"
               className="flex"
             >
-              <div className="w-full flex justify-center items-center bg-purple-300 bg-opacity-15 border-2 border-purple-300 rounded-md p-4 min-h-[6rem] hover:scale-105 ease-in-out duration-300">
+              <div className="w-full flex justify-center items-center bg-gradient-to-br from-purple-600/30 to-indigo-300/30 border-0 border-purple-300 rounded-2xl p-6 min-h-[6rem] hover:scale-102 ease-in-out duration-300">
                 <Image
                   src="/images/cs-can.webp"
                   alt="CS-Can logo"

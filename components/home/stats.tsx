@@ -72,7 +72,7 @@ export default function Stats() {
               variants={itemVariants}
               aria-labelledby={`stat-${index}`}
             >
-              <div className="absolute inset-0 transform translate-y-2 z-0 rounded-2xl shadow-stat-inner-shadow bg-stat-card-bg"></div>
+              <div className="absolute inset-0 transform translate-y-2 translate-x-2 z-0 rounded-2xl shadow-stat-inner-shadow bg-indigo-300"></div>
               <div className="relative flex flex-col items-center justify-center rounded-2xl p-9 shadow-stat-card-shadow z-10 bg-stat-card-bg h-32 md:h-44">
                 <h2
                   id={`stat-${index}`}
