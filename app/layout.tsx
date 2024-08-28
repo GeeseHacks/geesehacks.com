@@ -5,6 +5,7 @@ import "./globals.css";
 import MLHBadge from "../components/home/utils/mlhBadge";
 import { Analytics } from "@vercel/analytics/react"
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

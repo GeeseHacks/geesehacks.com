@@ -19,7 +19,7 @@ const FaqItem: React.FC<FaqItemProps> = ({ question, answer }) => {
   };
 
   return (
-    <div className="w-full bg-[#2D324F] bg-opacity-50 mb-2 rounded-3xl">
+    <div className="w-full bg-[#373d60] bg-opacity-50 mb-2 rounded-3xl">
       <div className="flex items-center justify-between px-6 py-4">
         <button
           className="flex-grow text-left text-lg text-white"
