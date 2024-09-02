@@ -22,11 +22,11 @@ export default function BackgroundStars() {
 
   useEffect(() => {
     const generateStars = () => {
-      const starsArray: Star[] = [...Array(250)].map(() => {
+      const starsArray: Star[] = [...Array(150)].map(() => {
         const size = `${Math.random() * 2 + 2}px`;
 
         // Generate some stars above the top of the screen and below the bottom of the screen
-        const topOffset = Math.random() > 0.5 ? -0 : -300; // 50% chance to generate stars out of screen bounds
+        const topOffset = Math.random() > 0.5 ? -0 : -200; // 50% chance to generate stars out of screen bounds
         return {
           size,
           top: `${Math.random() * (100 + topOffset) - topOffset}%`, // Adjust the top value
