@@ -31,6 +31,11 @@ const sponsorsData: Sponsor[] = [
     src: "/images/cs-can.webp",
     alt: "CS-Can",
   },
+  {
+    href: "https://www.voiceflow.com/",
+    src: "/images/voiceflow.png",
+    alt: "Voiceflow",
+  }
 ];
 
 interface SponsorCardProps {
@@ -87,13 +92,13 @@ const Sponsors: React.FC = () => {
               <SponsorCard key={index} {...sponsor} width="80%" />
             ))}
           </div>
-          <div className="grid grid-cols-1 gap-4 mt-4">
-            {sponsorsData.slice(2, 3).map((sponsor, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+            {sponsorsData.slice(2, 4).map((sponsor, index) => (
               <SponsorCard key={index} {...sponsor} width="70%" />
             ))}
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-1 gap-4 mt-4">
-            {sponsorsData.slice(3).map((sponsor, index) => (
+            {sponsorsData.slice(4).map((sponsor, index) => (
               <SponsorCard key={index} {...sponsor} width="70%" />
             ))}
           </div>
