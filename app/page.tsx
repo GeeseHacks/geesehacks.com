@@ -13,8 +13,10 @@ import Footer from '../components/home/footer';
 import Head from "next/head";
 import BackgroundStars from "@/components/home/utils/backgroundStars";
 import { motion } from "framer-motion"; 
+import backgroundImage from "@/public/images/heroBackground.webp";
 
 import "./globals.css";
+import SpinningWheel from "@/components/home/utils/spinningWheel";
 
 // SEO text for reference
 const aboutText = `GeeseHacks is an innovative hackathon that encapsulates the
@@ -39,11 +41,25 @@ export default function Home() {
         <div className="absolute bottom-60 right-60 m-20 w-1/2 h-1/2 bg-gradient-to-r from-teal-700 via-teal-800 to-teal-900 rounded-full blur-4xl opacity-20"></div>
       </div>
 
+      <div
+        className="bg-cover bg-center bg-fixed"
+        style={{
+          backgroundImage: `url(${backgroundImage.src})`,
+          backgroundSize: "cover",
+          backgroundAttachment: "fixed",
+        }}
+      >
+        {/* Glow Effect */}
+        <div className="fixed inset-0 -z-50">
+          {/* ... */}
+        </div>
+
       {/* Background Stars */}
       <BackgroundStars />
       
       <Navbar />
       <div id="hero"> <Hero /> </div>
+      <SpinningWheel />
       <div id="about"> <About /> </div>
       <div id="statistics"> <Stats /> </div>
       <div id="joinUs"> <JoinUs /> </div>
@@ -52,6 +68,7 @@ export default function Home() {
       {/* <div id="team"> <Team /> </div> */}
       <div id="faq"> <Faq /> </div>
       <Footer />
+      </div>
     </>
   );
 }
