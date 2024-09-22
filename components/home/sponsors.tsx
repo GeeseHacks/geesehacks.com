@@ -12,14 +12,14 @@ interface Sponsor {
 
 const sponsorsData: Sponsor[] = [
   {
-    href: "https://about.google/",
-    src: "/images/google_logo.png",
-    alt: "Google",
-  },
-  {
     href: "https://www.sunlife.ca/en/",
     src: "/images/sunlife-logo-vector.webp",
     alt: "Sun Life",
+  },
+  {
+    href: "https://about.google/",
+    src: "/images/google_logo.png",
+    alt: "Google",
   },
   {
     href: "https://uwaterloo.ca/",
@@ -87,18 +87,18 @@ const Sponsors: React.FC = () => {
           style={{ top: "30%" }}
         ></div>
         <div className="w-full sm:w-3/4 z-10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {sponsorsData.slice(0, 2).map((sponsor, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-1 gap-4">
+            {sponsorsData.slice(0, 1).map((sponsor, index) => (
               <SponsorCard key={index} {...sponsor} width="80%" />
             ))}
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
-            {sponsorsData.slice(2, 4).map((sponsor, index) => (
+            {sponsorsData.slice(1, 3).map((sponsor, index) => (
               <SponsorCard key={index} {...sponsor} width="70%" />
             ))}
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-1 gap-4 mt-4">
-            {sponsorsData.slice(4).map((sponsor, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+            {sponsorsData.slice(3, 5).map((sponsor, index) => (
               <SponsorCard key={index} {...sponsor} width="70%" />
             ))}
           </div>
