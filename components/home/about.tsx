@@ -5,6 +5,7 @@ import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
 import Head from "next/head";
 import wave from "@/public/images/wave.png";
+
 const smallQuotation = 'text-8xl font-bold absolute';
 const largeQuotation = 'hidden md:block text-[250px] md:text-[320px] font-bold absolute opacity-15';
 
@@ -66,40 +67,16 @@ const About: React.FC = () => {
         <meta name="description" content="Learn about GeeseHacks, an innovative hackathon at the University of Waterloo where coding, creativity, and technology collide to transform ideas into reality." />
       </Head>
       <div ref={ref} className="relative flex flex-col items-center justify-center text-white" aria-label="About GeeseHacks section">
-        {/* <Image
-          className="wave absolute top-0 left-0 w-full h-auto z-0 opacity-100 transition-opacity duration-500 ease-out"
-          src={wave}
-          alt="wave"
-        /> */}
+        <Image className="top-0 left-0 z-10 absolute -my-1" src={wave} alt="wave" />
+        <Image className="top-2 left-0 z-10 opacity-10 absolute md:top-8" src={wave} alt="wave" />
 
-
-        {/* <Image className="wave top-2 left-0 z-10 opacity-10 absolute md:top-8 wave" src={wave} alt="wave" /> */}
-
-        {/* Make the wave transparent */}
-        {/* <div className="wave-container">
-          <Image
-            className="wave"
-            src={wave}
-            alt="wave"
-            style={{ backgroundColor: 'transparent' }}
-          />
-        </div> */}
-
-        <div className="relative flex justify-center items-center">
-          <Image
-            src="/images/campfire.png"
-            alt="Campfire representing community and collaboration"
-            width={500}
-            height={500}
-          />
-        </div>
-
+        
 
         <motion.div
           initial="hidden"
           animate={controls}
           variants={containerVariants}
-          className="pb-40 pd:b-64 lg:pt-[2rem] lg:pb-72"
+          className="pt-72 pb-40 pd:b-64 lg:pt-[30rem] lg:pb-72"
         >
           <motion.h1 variants={containerVariants} className="text-4xl md:text-6xl md:font-medium text-center mb-12 md:mb-24 text-shadow-section-header-glow">
             About Us
@@ -107,7 +84,7 @@ const About: React.FC = () => {
           <motion.div variants={containerVariants} className="bg-gradient-to-tr from-violet-700 via-slate-50 to-violet-700 rounded-3xl p-1 mx-5 md:mx-10">
             <div className="bg-[#121E2F] relative p-7 sm:p-12 md:p-20 md:px-28 rounded-3xl shadow-purple-shadow text-center max-w-96 sm:max-w-lg md:max-w-xl lg:max-w-3xl">
               <div className="absolute inset-0 flex justify-center items-center z-10" aria-hidden="true">
-                <div className="w-56 h-56 md:w-72 md:h-72 bg-purple-600 rounded-full blur-3xl opacity-30"></div>
+                <div className="w-56 h-56 md:w-72 md:h-72 bg-purple-600 rounded-full blur-xl opacity-5"></div>
               </div>
               <span className={`${largeQuotation} -top-32 -left-12 md:-left-16 md:-top-44 z-20`} aria-hidden="true">
                 “

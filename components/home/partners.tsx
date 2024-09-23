@@ -15,7 +15,7 @@ export default function Partners() {
           And Our Partners
         </h1>
         <div
-          className="absolute w-11/12 h-36 md:w-80 md:h-40 lg:w-96 lg:h-48 bg-purple-600 rounded-full blur-3xl opacity-30"
+          className="absolute w-11/12 h-36 md:w-80 md:h-40 lg:w-96 lg:h-48 bg-purple-600 rounded-full blur-lg opacity-10"
           style={{ top: "35%" }}
         ></div>
         <div className="w-full sm:w-3/4 z-10">
