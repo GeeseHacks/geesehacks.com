@@ -1,3 +1,5 @@
+"use client";
+
 import Navbar from "@/components/home/navbar";
 import Hero from "@/components/home/hero";
 import About from '../components/home/about';
@@ -9,6 +11,9 @@ import Team from '../components/home/team';
 import Sponsors from '../components/home/sponsors';
 import Footer from '../components/home/footer';
 import Head from "next/head";
+import BackgroundStars from "@/components/home/utils/backgroundStars";
+import { motion } from "framer-motion"; 
+
 import "./globals.css";
 
 // SEO text for reference
@@ -27,6 +32,16 @@ export default function Home() {
         <title>GeeseHacks</title>
         <meta name="description" content="Join us at GeeseHacks, January 10-12 in Waterloo, ON. Hacker applications open soon. Stay tuned!" />
       </Head>
+
+      {/* Glow Effect */}
+      <div className="fixed inset-0 -z-50">
+        <div className="absolute top-60 left-60 m-20 w-1/2 h-1/2 bg-gradient-to-r from-purple-700 via-purple-800 to-purple-900 rounded-full blur-lg opacity-5"></div>
+        <div className="absolute bottom-60 right-60 m-20 w-1/2 h-1/2 bg-gradient-to-r from-teal-700 via-teal-800 to-teal-900 rounded-full blur-lg opacity-5"></div>
+      </div>
+
+      {/* Background Stars */}
+      <BackgroundStars />
+      
       <Navbar />
       <div id="hero"> <Hero /> </div>
       <div id="about"> <About /> </div>
@@ -40,4 +55,3 @@ export default function Home() {
     </>
   );
 }
-

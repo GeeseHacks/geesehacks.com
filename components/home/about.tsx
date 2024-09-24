@@ -66,9 +66,11 @@ const About: React.FC = () => {
         <title>About Us - GeeseHacks</title>
         <meta name="description" content="Learn about GeeseHacks, an innovative hackathon at the University of Waterloo where coding, creativity, and technology collide to transform ideas into reality." />
       </Head>
-      <div ref={ref} className="relative flex flex-col items-center justify-center bg-dark-blue text-white" aria-label="About GeeseHacks section">
+      <div ref={ref} className="relative flex flex-col items-center justify-center text-white" aria-label="About GeeseHacks section">
         <Image className="top-0 left-0 z-10 absolute -my-1" src={wave} alt="wave" />
         <Image className="top-2 left-0 z-10 opacity-10 absolute md:top-8" src={wave} alt="wave" />
+
+        
 
         <motion.div
           initial="hidden"
@@ -82,7 +84,7 @@ const About: React.FC = () => {
           <motion.div variants={containerVariants} className="bg-gradient-to-tr from-violet-700 via-slate-50 to-violet-700 rounded-3xl p-1 mx-5 md:mx-10">
             <div className="bg-[#121E2F] relative p-7 sm:p-12 md:p-20 md:px-28 rounded-3xl shadow-purple-shadow text-center max-w-96 sm:max-w-lg md:max-w-xl lg:max-w-3xl">
               <div className="absolute inset-0 flex justify-center items-center z-10" aria-hidden="true">
-                <div className="w-56 h-56 md:w-72 md:h-72 bg-purple-600 rounded-full blur-3xl opacity-30"></div>
+                <div className="w-56 h-56 md:w-72 md:h-72 bg-purple-600 rounded-full blur-xl opacity-5"></div>
               </div>
               <span className={`${largeQuotation} -top-32 -left-12 md:-left-16 md:-top-44 z-20`} aria-hidden="true">
                 “

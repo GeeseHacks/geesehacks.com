@@ -11,7 +11,7 @@ export default function Footer() {
         <meta name="description" content="Join us for a weekend full of geese! Learn more about the GeeseHacks organizing team, follow us on Instagram and LinkedIn, and review the MLH Code of Conduct." />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <footer className="flex flex-col items-center justify-around p-4 md:p-6 px-4 md:px-16 bg-gray-900">
+      <footer className="flex flex-col items-center justify-around p-4 md:p-6 px-4 md:px-16 bg-gray-900/50">
         <h1 className="text-2xl sm:text-4xl font-bold text-center text-white mb-4 sm:mb-8" aria-label="Join us for a weekend full of geese!">
           Join us for a weekend full of geese!
         </h1>

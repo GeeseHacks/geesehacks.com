@@ -49,7 +49,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ href, src, alt, width }) => {
       aria-label={`Visit ${alt} website`}  // Add ARIA label
       className="flex"
     >
-      <div className="flex justify-center items-center bg-purple-300 bg-opacity-15 border-2 border-purple-300 rounded-md p-12 min-h-[10rem] hover:scale-105 ease-in-out duration-300 w-full">
+      <div className="flex justify-center items-center bg-gradient-to-br  from-purple-600/20 to-indigo-300/20 border-0 border-purple-300 rounded-2xl p-12 min-h-[10rem] hover:scale-102 ease-in-out duration-300 w-full">
       <div className="relative w-full h-24"> 
           <Image
             src={src}
