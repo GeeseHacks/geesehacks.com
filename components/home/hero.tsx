@@ -39,7 +39,7 @@ const Hero = () => {
         <title>GeeseHacks - Hero Section</title>
         <meta name="description" content="Join us at GeeseHacks, happening from January 10-12 in Waterloo, ON. Stay tuned for hacker applications!" />
       </Head>
-      <div className="bg-cover w-full h-screen flex items-center justify-center md:justify-evenly bg-bottom" style={{ backgroundImage: `url("/images/heroBackground.webp")` }} aria-label="Hero section">
+      <div className="bg-cover w-full h-screen flex items-center justify-center md:justify-evenly bg-bottom" style={{ backgroundImage: `url("/images/heroBackground.png")` }} aria-label="Hero section">
         <div className="flex-col space-y-8 mb-3 mx-3 relative z-10">
           <motion.div initial="hidden" animate="visible" variants={containerVariants}>
             <motion.h1 variants={itemVariants} className="text-white text-2xl text-center mx-2 md:text-left lg:text-3xl text-shadow-white-glow">
