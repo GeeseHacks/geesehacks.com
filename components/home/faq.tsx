@@ -11,7 +11,7 @@ const Faq: React.FC = () => {
     },
     {
       question: "Who can participate in GeeseHacks?",
-      answer: "GeeseHacks is open to all highschool and university/college students, regardless of their skill level or experience."
+      answer: "GeeseHacks is open to all university/college students, regardless of their skill level or experience."
     },
     {
       question: "How do I register for GeeseHacks?",
