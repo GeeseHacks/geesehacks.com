@@ -50,7 +50,7 @@ const Faq: React.FC = () => {
         <meta name="description" content="Find answers to the most frequently asked questions about GeeseHacks. Learn about the hackathon, how to participate, and more." />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <div className="h-full flex flex-col items-center px-4 my-24 text-white">
+      <div id="faq" className="h-full flex flex-col items-center px-4 my-24 text-white">
         <h1 className="text-4xl md:text-6xl md:font-medium text-center mb-12 md:mb-24 text-shadow-section-header-glow" aria-label="Frequently Asked Questions">
           Frequently Asked Questions
         </h1>
