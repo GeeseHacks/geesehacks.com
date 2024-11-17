@@ -1,16 +1,10 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import Head from "next/head";
+import Card from "./utils/sponsorPartnerCard";
 
-interface Sponsor {
-  href: string;
-  src: string;
-  alt: string;
-}
-
-const sponsorsData: Sponsor[] = [
+const sponsorsData = [
   {
     href: "https://www.sunlife.ca/en/",
     src: "/images/sunlife-logo-vector.webp",
@@ -35,47 +29,18 @@ const sponsorsData: Sponsor[] = [
     href: "https://www.voiceflow.com/",
     src: "/images/voiceflow.png",
     alt: "Voiceflow",
-  }
+  },
 ];
-
-interface SponsorCardProps {
-  href: string;
-  src: string;
-  alt: string;
-  width: string;
-}
-
-const SponsorCard: React.FC<SponsorCardProps> = ({ href, src, alt, width }) => {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`Visit ${alt} website`}  // Add ARIA label
-      className="flex"
-    >
-      <div className="flex justify-center items-center bg-gradient-to-br  from-purple-600/20 to-indigo-300/20 border-0 border-purple-300 rounded-2xl p-12 min-h-[10rem] hover:scale-102 ease-in-out duration-300 w-full">
-      <div className="relative w-full h-24"> 
-          <Image
-            src={src}
-            alt={alt}
-            fill
-            style={{ objectFit: 'contain' }}
-            loading="lazy"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
-        </div>
-      </div>
-    </a>
-  );
-};
 
 const Sponsors: React.FC = () => {
   return (
     <>
       <Head>
         <title>Sponsors | GeeseHacks</title>
-        <meta name="description" content="Meet the sponsors of GeeseHacks, including Google, Sun Life, University of Waterloo, and CS-Can." />
+        <meta
+          name="description"
+          content="Meet the sponsors of GeeseHacks, including Google, Sun Life, University of Waterloo, and CS-Can."
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <div className="p-8 sm:p-16 flex flex-col items-center justify-center relative mt-24 text-white">
@@ -86,20 +51,21 @@ const Sponsors: React.FC = () => {
           className="absolute w-11/12 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-purple-600 rounded-full blur-3xl opacity-30"
           style={{ top: "30%" }}
         ></div>
-        <div className="w-full sm:w-3/4 z-10">
-          <div className="grid grid-cols-1 sm:grid-cols-1 gap-4">
+        <div className="w-full lg:w-3/4 z-10">
+          {/* Adjust grids to use the lg breakpoint */}
+          <div className="grid grid-cols-1 lg:grid-cols-1 gap-4">
             {sponsorsData.slice(0, 1).map((sponsor, index) => (
-              <SponsorCard key={index} {...sponsor} width="80%" />
+              <Card key={index} {...sponsor} />
             ))}
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
             {sponsorsData.slice(1, 3).map((sponsor, index) => (
-              <SponsorCard key={index} {...sponsor} width="70%" />
+              <Card key={index} {...sponsor} />
             ))}
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
             {sponsorsData.slice(3, 5).map((sponsor, index) => (
-              <SponsorCard key={index} {...sponsor} width="70%" />
+              <Card key={index} {...sponsor} />
             ))}
           </div>
         </div>
