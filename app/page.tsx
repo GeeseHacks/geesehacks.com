@@ -30,7 +30,7 @@ export default function Home() {
     <>
       <Head>
         <title>GeeseHacks</title>
-        <meta name="description" content="Join us at GeeseHacks, January 10-12 in Waterloo, ON. Hacker applications open soon. Stay tuned!" />
+        <meta name="description" content="Join us at GeeseHacks, January 25-26 in Waterloo, ON. Hacker applications open soon. Stay tuned!" />
       </Head>
 
       {/* Glow Effect */}
