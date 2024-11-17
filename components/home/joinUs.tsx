@@ -23,7 +23,7 @@ export default function JoinUs() {
         <div className="text-xl text-center text-white flex flex-col gap-4 p-8 mt-[-7rem]">
           <p>Our hackathon thrives thanks to the generous support of our sponsors</p>
           <a
-            href="mailto:sponsor@geesehacks.com"
+            href="https://drive.google.com/file/d/1FjJW1jM1XmsS3_7OuRFptcO46eC2cP69/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="underline"

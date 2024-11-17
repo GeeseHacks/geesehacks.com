@@ -37,7 +37,7 @@ const Hero = () => {
     <>
     <Head>
         <title>GeeseHacks - Hero Section</title>
-        <meta name="description" content="Join us at GeeseHacks, happening from January 10-12 in Waterloo, ON. Stay tuned for hacker applications!" />
+        <meta name="description" content="Join us at GeeseHacks, happening from January 25-26 in Waterloo, ON. Stay tuned for hacker applications!" />
       </Head>
       <div className="bg-cover w-full h-screen flex items-center justify-center md:justify-evenly bg-bottom" style={{ backgroundImage: `url(${backgroundImage.src})` }} aria-label="Hero section">
         <div className="flex-col space-y-8 mb-3 mx-3 relative z-10">
