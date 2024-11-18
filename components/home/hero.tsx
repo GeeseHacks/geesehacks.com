@@ -43,7 +43,7 @@ const Hero = () => {
         <div className="flex-col space-y-8 mb-3 mx-3 relative z-10">
           <motion.div initial="hidden" animate="visible" variants={containerVariants}>
             <motion.h1 variants={itemVariants} className="text-white text-2xl text-center mx-2 md:text-left lg:text-3xl text-shadow-white-glow">
-              January 10-12 · Waterloo, ON
+              January 25-26 · Waterloo, ON
             </motion.h1>  
 
             <motion.h1 variants={itemVariants} className="text-white text-center text-5xl my-6 sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-shadow-white-glow">
