@@ -161,23 +161,25 @@ const Navbar: React.FC = () => {
             </div>
           </div>
           {isOpen && (
-            <div
-              id="navbar-menu"
-              className="lg:hidden bg-gray-800 px-2 pt-2 pb-3 space-y-1 flex flex-col"
-            >
-              {navLinks}
-              {applicationOpen && (
-                <Link
-                  href="http://portal.geesehacks.com"
-                  target="_blank"
-                  className={linkStyle}
-                  aria-label="Apply Now"
-                >
-                  Apply Now
-                </Link>
-              )}
-            </div>
-          )}
+  <div
+    id="navbar-menu"
+    className="lg:hidden bg-gray-800 w-full px-4 pt-4 pb-6 space-y-2 flex flex-col rounded-lg bg-opacity-90"
+  >
+    {navLinks}
+    {applicationOpen && (
+      <Link
+        href="http://portal.geesehacks.com"
+        target="_blank"
+        className="px-4 py-2 bg-white text-gray-900 rounded-full text-center text-sm font-medium shadow-md hover:bg-gray-100 transition-all duration-300 ease-in-out"
+        aria-label="Apply Now"
+      >
+        Apply Now
+      </Link>
+    )}
+  </div>
+)}
+
+          
         </div>
       </nav>
     </>
