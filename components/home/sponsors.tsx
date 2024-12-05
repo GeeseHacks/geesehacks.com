@@ -30,6 +30,11 @@ const sponsorsData = [
     src: "/images/voiceflow.png",
     alt: "Voiceflow",
   },
+  {
+    href: "https://apidiscovery.teejlab.com",
+    src: "/images/teejlab.png",
+    alt: "TeejLab",
+  },
 ];
 
 const Sponsors: React.FC = () => {
@@ -52,19 +57,19 @@ const Sponsors: React.FC = () => {
           style={{ top: "30%" }}
         ></div>
         <div className="w-full lg:w-3/4 z-10">
-          {/* Adjust grids to use the lg breakpoint */}
-          <div className="grid grid-cols-1 lg:grid-cols-1 gap-4">
-            {sponsorsData.slice(0, 1).map((sponsor, index) => (
+          {/* Set lg:grid-cols-1 to make a sponsor take up an entire row */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            {sponsorsData.slice(0, 2).map((sponsor, index) => (
               <Card key={index} {...sponsor} />
             ))}
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
-            {sponsorsData.slice(1, 3).map((sponsor, index) => (
+            {sponsorsData.slice(2, 4).map((sponsor, index) => (
               <Card key={index} {...sponsor} />
             ))}
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
-            {sponsorsData.slice(3, 5).map((sponsor, index) => (
+            {sponsorsData.slice(4, 6).map((sponsor, index) => (
               <Card key={index} {...sponsor} />
             ))}
           </div>
