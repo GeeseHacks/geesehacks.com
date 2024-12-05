@@ -3,13 +3,13 @@
 import Link from "next/link";
 import React from "react";
 
-const HeroButton: React.FC<{ href: string; children: React.ReactNode }> = ({ href, children }) => {
+const HeroButton: React.FC<{children: React.ReactNode }> = ({
+  children,
+}) => {
   return (
-    <Link href={href} legacyBehavior>
-      <a className="custom-gradient-button">
-        <span className="front">
-          {children}
-        </span>
+    <Link href="http://portal.geesehacks.com"  legacyBehavior>
+      <a className="custom-gradient-button" target="_blank" rel="noopener noreferrer">
+        <span className="front">{children}</span>
         <style jsx>{styles}</style>
       </a>
     </Link>

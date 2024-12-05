@@ -6,7 +6,7 @@ import Image from "next/image";
 import Head from "next/head";
 
 // SET TO TRUE WHEN APPLICATION OPENS
-const applicationOpen = false;
+const applicationOpen = true;
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,20 +43,23 @@ const Navbar: React.FC = () => {
       handleScroll();
     };
 
-    window.addEventListener('scroll', handleVisibility);
+    window.addEventListener("scroll", handleVisibility);
 
     // event listener to close the navbar when clicking outside
     const handleClickOutside = (event: MouseEvent) => {
-      if (navbarRef.current && !navbarRef.current.contains(event.target as Node)) {
+      if (
+        navbarRef.current &&
+        !navbarRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
-      window.removeEventListener('scroll', handleVisibility);
-      document.removeEventListener('mousedown', handleClickOutside);
+      window.removeEventListener("scroll", handleVisibility);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -87,7 +90,10 @@ const Navbar: React.FC = () => {
       href={link.url}
       className={linkStyle}
       key={link.url}
-      onClick={(e) => { smoothScroll(e); setIsOpen(false); }}
+      onClick={(e) => {
+        smoothScroll(e);
+        setIsOpen(false);
+      }}
       aria-label={link.text} // Add ARIA label
     >
       {link.text}
@@ -98,14 +104,22 @@ const Navbar: React.FC = () => {
     <>
       <Head>
         <title>GeeseHacks Navbar</title>
-        <meta name="description" content="GeeseHacks Navbar - Navigate through Home, About, Sponsors, and FAQ sections." />
+        <meta
+          name="description"
+          content="GeeseHacks Navbar - Navigate through Home, About, Sponsors, and FAQ sections."
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <nav
         ref={navbarRef}
-        className={`w-screen fixed top-0 left-0 text-white z-50 lg:pt-4 pt-0 px-4 sm:px-6 lg:px-8 2xl:px-0 transition-all h-20 duration-300 ${scrolled ? `bg-[rgba(0,0,0,0.1)] fixed w-full ${isVisible ? 'top-0' : '-top-20'} transition-top duration-300 ease-in-out z-50` : "bg-transparent"
-          } `}
-        aria-label="Main navigation"  // Add ARIA label for the navigation
+        className={`w-screen fixed top-0 left-0 text-white z-50 lg:pt-4 pt-0 px-4 sm:px-6 lg:px-8 2xl:px-0 transition-all h-20 duration-300 ${
+          scrolled
+            ? `bg-[rgba(0,0,0,0.1)] fixed w-full ${
+                isVisible ? "top-0" : "-top-20"
+              } transition-top duration-300 ease-in-out z-50`
+            : "bg-transparent"
+        } `}
+        aria-label="Main navigation" // Add ARIA label for the navigation
       >
         <div className="mx-auto w-full 2xl:w-4/5">
           <div className="flex justify-between h-12">
@@ -134,23 +148,38 @@ const Navbar: React.FC = () => {
             </div>
             <div className="hidden lg:flex lg:space-x-4 items-center">
               {navLinks}
-              {applicationOpen && <Link
-                href="/apply"
-                className="px-6 py-2 bg-transparent border-2 border-white rounded-full text-white text-sm md:text-base lg:text-md xl:text-lg font-medium hover:bg-white hover:text-gray-900 transition-all duration-300 ease-in-out"
-                aria-label="Apply Now"
-              >
-                Apply Now
-              </Link>}
+              {applicationOpen && (
+                <Link
+                  href="http://portal.geesehacks.com"
+                  target="_blank"
+                  className="px-6 py-2 bg-transparent border-2 border-white rounded-full text-white text-sm md:text-base lg:text-md xl:text-lg font-medium hover:bg-white hover:text-gray-900 transition-all duration-300 ease-in-out"
+                  aria-label="Apply Now"
+                >
+                  Apply Now
+                </Link>
+              )}
             </div>
           </div>
           {isOpen && (
-            <div id="navbar-menu" className="lg:hidden bg-gray-800 px-2 pt-2 pb-3 space-y-1 flex flex-col">
-              {navLinks}
-              {applicationOpen && <Link href="/apply" className={linkStyle} aria-label="Apply Now">
-                Apply Now
-              </Link>}
-            </div>
-          )}
+  <div
+    id="navbar-menu"
+    className="lg:hidden bg-gray-800 w-full px-4 pt-4 pb-6 space-y-2 flex flex-col rounded-lg bg-opacity-90"
+  >
+    {navLinks}
+    {applicationOpen && (
+      <Link
+        href="http://portal.geesehacks.com"
+        target="_blank"
+        className="px-4 py-2 bg-white text-gray-900 rounded-full text-center text-sm font-medium shadow-md hover:bg-gray-100 transition-all duration-300 ease-in-out"
+        aria-label="Apply Now"
+      >
+        Apply Now
+      </Link>
+    )}
+  </div>
+)}
+
+          
         </div>
       </nav>
     </>

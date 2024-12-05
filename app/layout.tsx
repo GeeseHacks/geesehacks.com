@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} w-full`}>
+      <body className={`${inter.className} w-full overflow-auto max-md:no-scrollbar`}>
         {/* Remove if not sponsored by MLH */}
         {/* <MLHBadge /> */}
         {children}
