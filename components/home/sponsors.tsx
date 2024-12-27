@@ -16,14 +16,19 @@ const sponsorsData = [
     alt: "Google",
   },
   {
-    href: "https://uwaterloo.ca/",
-    src: "/images/uwaterloo_logo.png",
-    alt: "University of Waterloo",
+    href: "https://uwaterloo.ca/math-endowment-fund/",
+    src: "/images/mef_logo.png",
+    alt: "Math Endowment Fund",
   },
   {
     href: "https://cscan-infocan.ca/",
     src: "/images/cs-can.webp",
     alt: "CS-Can",
+  },
+  {
+    href: "https://uwaterloo.ca/",
+    src: "/images/uwaterloo_logo.png",
+    alt: "University of Waterloo",
   },
   {
     href: "https://www.voiceflow.com/",
@@ -58,18 +63,23 @@ const Sponsors: React.FC = () => {
         ></div>
         <div className="w-full lg:w-3/4 z-10">
           {/* Set lg:grid-cols-1 to make a sponsor take up an entire row */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            {sponsorsData.slice(0, 2).map((sponsor, index) => (
+          <div className="grid grid-cols-1 lg:grid-cols-1 gap-4">
+            {sponsorsData.slice(0, 1).map((sponsor, index) => (
               <Card key={index} {...sponsor} />
             ))}
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
-            {sponsorsData.slice(2, 4).map((sponsor, index) => (
+            {sponsorsData.slice(1, 3).map((sponsor, index) => (
               <Card key={index} {...sponsor} />
             ))}
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
-            {sponsorsData.slice(4, 6).map((sponsor, index) => (
+            {sponsorsData.slice(3, 5).map((sponsor, index) => (
+              <Card key={index} {...sponsor} />
+            ))}
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
+            {sponsorsData.slice(5, 7).map((sponsor, index) => (
               <Card key={index} {...sponsor} />
             ))}
           </div>
