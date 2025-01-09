@@ -7,7 +7,7 @@ import Card from "./utils/sponsorPartnerCard";
 const sponsorsData = [
   {
     href: "https://www.sunlife.ca/en/",
-    src: "/images/sunlife-logo-vector.webp",
+    src: "/images/sunlife_logo.png",
     alt: "Sun Life",
   },
   {
