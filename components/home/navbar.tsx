@@ -6,7 +6,7 @@ import Image from "next/image";
 import Head from "next/head";
 
 // SET TO TRUE WHEN APPLICATION OPENS
-const applicationOpen = true;
+const applicationOpen = false;
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
