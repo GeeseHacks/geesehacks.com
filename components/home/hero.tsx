@@ -4,8 +4,9 @@ import React, { Suspense, lazy } from "react";
 import HeroButton from "./utils/heroButton";
 import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { motion } from "framer-motion";
-import Image from 'next/image';
+import Image from "next/image";
 import backgroundImage from "@/public/images/heroBackground.webp";
+import googleLogo from "@/public/images/google_logo.png";
 import Head from "next/head";
 
 // Lazy load AnimatedTerminal
@@ -35,18 +36,35 @@ const itemVariants = {
 const Hero = () => {
   return (
     <>
-    <Head>
+      <Head>
         <title>GeeseHacks - Hero Section</title>
-        <meta name="description" content="Join us at GeeseHacks, happening from January 25-26 in Waterloo, ON. Stay tuned for hacker applications!" />
+        <meta
+          name="description"
+          content="Join us at GeeseHacks, happening from January 25-26 in Waterloo, ON. Stay tuned for hacker applications!"
+        />
       </Head>
-      <div className="bg-cover w-full h-screen flex items-center justify-center md:justify-evenly bg-bottom" style={{ backgroundImage: `url(${backgroundImage.src})` }} aria-label="Hero section">
+      <div
+        className="bg-cover w-full h-screen flex items-center justify-center md:justify-evenly bg-bottom"
+        style={{ backgroundImage: `url(${backgroundImage.src})` }}
+        aria-label="Hero section"
+      >
         <div className="flex-col space-y-8 mb-3 mx-3 relative z-10">
-          <motion.div initial="hidden" animate="visible" variants={containerVariants}>
-            <motion.h1 variants={itemVariants} className="text-white text-2xl text-center mx-2 md:text-left lg:text-3xl text-shadow-white-glow">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+          >
+            <motion.h1
+              variants={itemVariants}
+              className="text-white text-2xl text-center mx-2 md:text-left lg:text-3xl text-shadow-white-glow"
+            >
               January 25-26 · Waterloo, ON
-            </motion.h1>  
+            </motion.h1>
 
-            <motion.h1 variants={itemVariants} className="text-white text-center text-5xl my-6 sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-shadow-white-glow">
+            <motion.h1
+              variants={itemVariants}
+              className="text-white text-center text-5xl my-6 sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-shadow-white-glow"
+            >
               GeeseHacks
             </motion.h1>
 
@@ -55,19 +73,41 @@ const Hero = () => {
                 Applications closed... Stay tuned for decisions!
               </h1>
               <h1 className="text-white mx-2 text-center font-semilight text-lg lg:text-xl lg:text-left text-shadow-white-glow">
-                Powered by Google Developers
-                #BuildwithAI
+                <span className="flex items-center justify-center lg:justify-start gap-2">
+                  Powered by
+                  <Image
+                    src={googleLogo}
+                    alt="Google"
+                    width={80}
+                    height={27}
+                    className="inline-block"
+                  />
+                  Developers
+                </span>
+                <span className="block pt-4">#BuildwithAI</span>
               </h1>
             </motion.div>
           </motion.div>
 
           <div className="flex flex-row justify-center md:justify-normal gap-6 px-2">
-            <a href="https://www.instagram.com/geesehacks/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:scale-110 transition-transform duration-300">
+            <a
+              href="https://www.instagram.com/geesehacks/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="hover:scale-110 transition-transform duration-300"
+            >
               <div className="rounded-full bg-[#EAE0D5] p-2">
                 <FaInstagram size="30px" />
               </div>
             </a>
-            <a href="https://www.linkedin.com/company/geesehacks" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:scale-110 transition-transform duration-300">
+            <a
+              href="https://www.linkedin.com/company/geesehacks"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="hover:scale-110 transition-transform duration-300"
+            >
               <div className="rounded-full bg-[#EAE0D5] p-2">
                 <FaLinkedinIn size="30px" />
               </div>
