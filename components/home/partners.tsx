@@ -21,14 +21,44 @@ const partnersData = [
     alt: "Double Degree Club",
   },
   {
+    href: "https://aws.amazon.com/developer/community/students/cloudclubs/",
+    src: "/images/aws_cloud_clubs_logo.png",
+    alt: "AWS Cloud Clubs",
+  },
+  {
     href: "https://www.uwdatascience.ca/cxc",
     src: "/images/cxc_logo.png",
     alt: "CxC Data Science",
   },
   {
-    href: "https://aws.amazon.com/developer/community/students/cloudclubs/",
-    src: "/images/aws_cloud_clubs_logo.png",
-    alt: "AWS Cloud Clubs",
+    href: "",
+    src: "/images/ACE.jpg",
+    alt: "ACE",
+  },
+  {
+    href: "https://mchacks.ca",
+    src: "/images/mchack.svg",
+    alt: "McHacks",
+  },
+  {
+    href: "https://qhacks.io",
+    src: "/images/qhacks.png",
+    alt: "QHacks",
+  },
+  {
+    href: "https://hackthe6ix.com",
+    src: "/images/ht6.png",
+    alt: "Hack the 6ix",
+  },
+  {
+    href: "",
+    src: "/images/hackathon-canada.png",
+    alt: "Hackathons Canada",
+  },
+  {
+    href: "https://www.linkedin.com/showcase/yorkcshub/",
+    src: "/images/york_cshub.webp",
+    alt: "York CS",
   },
 ];
 
