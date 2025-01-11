@@ -20,6 +20,16 @@ const partnersData = [
     src: "/images/double-degree-club.webp",
     alt: "Double Degree Club",
   },
+  {
+    href: "https://www.uwdatascience.ca/cxc",
+    src: "/images/cxc_logo.png",
+    alt: "CxC Data Science",
+  },
+  {
+    href: "https://aws.amazon.com/developer/community/students/cloudclubs/",
+    src: "/images/aws_cloud_clubs_logo.png",
+    alt: "AWS Cloud Clubs",
+  },
 ];
 
 const Partners: React.FC = () => {
@@ -45,11 +55,11 @@ const Partners: React.FC = () => {
         ></div>
         <div className="w-full lg:w-3/4 z-10">
           {/* Adjust the grid layout to use `lg` breakpoint */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-6 gap-4">
             {partnersData.map((partner, index) => (
               <div
                 key={index}
-                className={index === 2 ? "lg:col-span-2" : ""} // Span two columns only on larger screens
+                className={index >= 2 ? "lg:col-span-2" : "lg:col-span-3"} // Span two columns only on larger screens
               >
                 <Card {...partner} />
               </div>
