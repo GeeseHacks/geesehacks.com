@@ -12,7 +12,7 @@ import Head from "next/head";
 const AnimatedTerminal = lazy(() => import("./utils/terminal"));
 
 // SET TO TRUE WHEN APPLICATION OPENS
-const applicationOpen = true;
+const applicationOpen = false;
 
 const containerVariants = {
   hidden: { opacity: 0, y: -30 },
@@ -52,7 +52,7 @@ const Hero = () => {
 
             <motion.div variants={itemVariants} className="space-y-6">
               <h1 className="text-white mx-2 text-center font-semilight text-lg lg:text-xl lg:text-left text-shadow-white-glow">
-                Hacker applications open!
+                Applications closed.. Please come back next year!
               </h1>
             </motion.div>
           </motion.div>
