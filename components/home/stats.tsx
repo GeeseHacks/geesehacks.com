@@ -65,7 +65,7 @@ export default function Stats() {
           variants={containerVariants}
           aria-live="polite"
         >
-          {["$5000", "20+", "300+", "24"].map((stat, index) => (
+          {["$13k+", "20+", "300+", "24"].map((stat, index) => (
             <motion.div
               key={index}
               className="w-3/4 md:w-1/5 relative"
