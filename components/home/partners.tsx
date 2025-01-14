@@ -31,7 +31,7 @@ const partnersData = [
     alt: "CxC Data Science",
   },
   {
-    href: "",
+    href: "https://www.instagram.com/uw_ace/",
     src: "/images/ACE.jpg",
     alt: "ACE",
   },
@@ -51,7 +51,7 @@ const partnersData = [
     alt: "Hack the 6ix",
   },
   {
-    href: "",
+    href: "https://hackcanada.org/",
     src: "/images/hackathon-canada.png",
     alt: "Hackathons Canada",
   },

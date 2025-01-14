@@ -26,13 +26,13 @@ const sponsorsData = [
     alt: "University of Waterloo",
   },
   {
-    href: "",
-    src: "/images/spur.png",
+    href: "https://spuric.com",
+    src: "/images/spur_logo.svg",
     alt: "Spur",
   },
   {
-    href: "",
-    src: "/images/konfer.jpg",
+    href: "https://konfer.ca//",
+    src: "/images/konfer_logo.png",
     alt: "Konfer",
   },
   {
